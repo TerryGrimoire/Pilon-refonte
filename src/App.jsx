@@ -11,8 +11,8 @@ import "./App.css";
 
 function App() {
   const helmet = {
-    title: "Change Title",
-    href: "https://changehref.com",
+    title: "Association Pilon | Association LGBT à La Réunion",
+    href: "https://www.pilon.re",
     description: "Change description",
   };
   return (

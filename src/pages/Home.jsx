@@ -1,11 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Image from "../components/Home/LandingPage/Image";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import fleche from "../assets/fleche.png";
+
+import chiffres from "../data/chiffres";
+import actions from "../data/actions";
+import actualite from "../data/actualite";
+
+import video from "../assets/video.mp4";
+import presentation from "../assets/presentation.jpg";
+import presentation2 from "../assets/presentation2.jpg";
+import presentation3 from "../assets/presentation3.jpg";
+import presentation4 from "../assets/presentation4.jfif";
+import presentation5 from "../assets/presentation5.jpg";
+import presentation6 from "../assets/presentation6.jpg";
 
 export default function Home({ helmet }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const videoElement = videoRef.current;
+
+    // Ensure video is loaded and ready to play for autoplay to work reliably
+    if (videoElement) {
+      videoElement.load();
+      videoElement.play().catch((error) => {
+        console.error("Autoplay was prevented on iOS:", error);
+      });
+    }
+  }, []);
+
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start", // Aligne le début de l'image au début du cadre
+      containScroll: "trimSnaps", // Évite les espaces vides au début/fin
+    },
+    [Autoplay()]
+  );
+  const currentYear = new Date().getFullYear();
+  const years = ["2024", "2025", "2026"];
+  const [dateSelected, setDateSelected] = useState(currentYear.toString());
   return (
     <main className="flex-col">
       <Helmet>
@@ -14,36 +53,147 @@ export default function Home({ helmet }) {
         <meta name="description" content={helmet.description} />
       </Helmet>
 
-      {/*
+      <section className="home_hero">
+        <div className="veil" />
+        <video
+          src={video} // Replace with your video URL
+          autoPlay
+          muted
+          loop
+          playsinline
+          disablePictureInPicture
+        />
+        <h1>
+          Ensemble luttons contre le rejet des personnes LGBT de La Réunion
+        </h1>
+        <Link to="/">
+          <img src={fleche} alt="icone fleche" className="pulse-element" />
+        </Link>
+      </section>
+      <section className="home_presentation">
+        <div className="gradient-rainbow" />
 
-        Options here :
-        -  Main image Style - Landing page like Charles Portefolio (main image + title in the middle) 
-        -  Main video Style - Landing page like Barber 902 (main vidéo + title in the middle)
-        -  Animation  Style - Landing page like ASMK (main image animated + title in the middle)
- 
-        */}
+        <div>
+          <div className="embla" ref={emblaRef}>
+            <div className="embla__container">
+              <div className="embla__slide">
+                <img src={presentation} alt="" />
+              </div>
+              <div className="embla__slide">
+                <img src={presentation2} alt="" />
+              </div>
+              <div className="embla__slide">
+                <img src={presentation3} alt="" />
+              </div>
+              <div className="embla__slide">
+                <img src={presentation4} alt="" />
+              </div>
+              <div className="embla__slide">
+                <img src={presentation5} alt="" />
+              </div>
+              <div className="embla__slide">
+                <img src={presentation6} alt="" />
+              </div>
+            </div>
+          </div>
+          <article>
+            <h3>Qui sommes-nous ?</h3>
+            <p>
+              L'association Pilon est une association loi 1901, créée en 2013 à
+              La Réunion, qui a pour but de lutter contre les discriminations et
+              les violences envers les personnes LGBT+ (Lesbiennes, Gays,
+              Bisexuel·le·s, Transgenres, Queer et autres identités de genre et
+              orientations sexuelles minoritaires). Nous œuvrons pour la
+              visibilité, les droits et le bien-être des personnes LGBT+ à
+              travers diverses actions de sensibilisation, d'accompagnement et
+              de soutien.
+            </p>
+            <div className="button_container">
+              <Link to="/association" className="button_style">
+                En savoir plus sur l'association
+              </Link>
+              <Link to="/Actions" className="button_style">
+                Découvrir nos actions
+              </Link>
+            </div>
+          </article>
+        </div>
+        <div />
+      </section>
 
-      <Image title={helmet.title} />
-      <section className="section2">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
-          aliquid vel blanditiis. Iste earum tempore, corrupti distinctio nam
-          dignissimos incidunt eveniet in tempora libero! Possimus explicabo
-          architecto aut dolorem blanditiis magni porro maiores dignissimos
-          repellat rem voluptatum, magnam provident at illum atque fugit
-          assumenda eaque minima iste. Quaerat odit suscipit possimus nostrum,
-          libero odio est quo culpa tempore ex tenetur sed esse unde doloremque
-          ea minus rerum laboriosam eveniet labore ipsam voluptate officiis
-          fugiat. Natus minima voluptatem hic eum ad perferendis rerum animi,
-          provident aliquid quisquam, mollitia eaque enim eligendi consequatur
-          nihil eveniet ex corrupti delectus quidem consequuntur! Saepe
-          repudiandae excepturi ut atque dolorum quisquam voluptas laudantium
-          sapiente, obcaecati voluptatibus earum adipisci dolor maiores beatae
-          delectus ab pariatur! Fuga voluptatibus soluta quidem alias suscipit
-          animi, nisi dolorum adipisci veritatis veniam amet aut odio magni,
-          nihil nobis fugit iste expedita ut nulla quas consequuntur debitis?
-          Nihil ipsam dicta saepe temporibus molestiae!
-        </p>
+      <section className="home_chiffres">
+        <div className="home_chiffres_description">
+          <h3>Quelques chiffres</h3>
+          <p>
+            Voici quelques chiffres pour illustrer notre impact. Notre
+            association est pionnière dans plusieurs domaines et ses actions
+            s'exportent désormais dans plusieurs pays.{" "}
+          </p>
+        </div>
+
+        <div className="home_chiffres_chiffre">
+          {chiffres.map((chiffre) => (
+            <div>
+              <div className="gradient-rainbow" />
+              <h5>{chiffre.numero}</h5> <p>{chiffre.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="home_actions">
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {actions.map((action) => (
+              <div key={action.id} className="embla__slide">
+                <img src={action.image} alt={action.title} />
+                <div className="action_card_content">
+                  <div className="veil" />
+
+                  <h4> {action.title}</h4>
+                  <p>{action.description}</p>
+                  <Link to={action.link} className="button_style">
+                    Découvrir nos actions
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="home_agenda">
+        <h2>Notre agenda</h2>
+        <div className="home_dates">
+          {years.map((year) => (
+            <button
+              key={year}
+              type="button"
+              onClick={() => setDateSelected(year)}
+              className={dateSelected.includes(year) ? "red" : ""}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+        <div className="agenda_container">
+          {actualite
+            .filter((item) => item.year.includes(dateSelected))
+            .map((item) => (
+              <div key={item.id} className="agenda_card">
+                <img src={item.image} alt={item.title} />
+                <div className="agenda_card_content">
+                  <h4>{item.title}</h4>
+
+                  <p>{item.description}</p>
+                  <a href="/">s'inscrire</a>
+                  <div>
+                    <p>{item.date}</p>
+                  </div>
+                  <Link to="/agenda">Découvrir tous les événements</Link>
+                </div>
+              </div>
+            ))}
+        </div>
       </section>
     </main>
   );
