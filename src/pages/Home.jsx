@@ -16,6 +16,9 @@ import presentation3 from "../assets/presentation3.jpg";
 import presentation4 from "../assets/presentation4.jfif";
 import presentation5 from "../assets/presentation5.jpg";
 import presentation6 from "../assets/presentation6.jpg";
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
+import youtube from "../assets/youtube.png";
 
 export default function Home({ helmet }) {
   useEffect(() => {
@@ -193,6 +196,49 @@ export default function Home({ helmet }) {
                 </div>
               </div>
             ))}
+        </div>
+      </section>
+      <section className="home_soutenir">
+        <div>
+          <h4>Tu veux soutenir Pilon ou devenir bénévole ?</h4>
+          <div>
+            <Link to="/Soutenir">
+              <button type="button" className="button_style">
+                Soutenir Pilon
+              </button>
+            </Link>
+            <Link to="/Soutenir/Benevoles">
+              <button type="button" className="button_style">
+                Devenir Bénévole
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="home_social">
+        <h4>Suivez-nous sur les réseaux sociaux !</h4>
+        <div>
+          <a
+            href="https://www.facebook.com/associationpilon.reunion"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={facebook} alt="logo Facebook" />
+          </a>
+          <a
+            href="https://www.instagram.com/associationpilon/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={instagram} alt="logo Instagram" />
+          </a>
+          <a
+            href="https://www.youtube.com/AssociationPilon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={youtube} alt="logo YouTube" />
+          </a>
         </div>
       </section>
     </main>

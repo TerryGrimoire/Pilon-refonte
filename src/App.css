@@ -235,7 +235,7 @@ p {
 
 .embla {
   overflow: hidden; /* Cache les slides qui ne sont pas actives */
-  width: 35%;
+  width: 40%;
   background-color: #f3f4f6;
 }
 
@@ -262,9 +262,9 @@ p {
 }
 
 .home_presentation article {
-  padding: 10px;
-  width: 60%;
-  margin-left: 20px;
+  padding: 30px 60px;
+  width: 50%;
+  margin-left: 0px;
 }
 
 .home_presentation article p {
@@ -486,3 +486,22 @@ align-items: stretch;
   height: 60%;
 
 } 
+
+.home_soutenir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 70px 10vw;
+  margin: 120px 0;
+  text-align: center;
+  color: white;
+background: var(--secondary-bg-color);
+}
+
+.home_soutenir h4 {
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  color: white;
+}
