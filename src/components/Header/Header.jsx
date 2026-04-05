@@ -21,6 +21,7 @@ function Burger() {
           <Link to="/Rejoindre">Nous rejoindre</Link>
           <Link to="/Blog">BLog</Link>
           <Link to="/Presse">Presse</Link>
+          <Link to="/FAQ">Foire aux questions</Link>
           <Link to="/Contact">Contact</Link>
         </div>
         <div className="social_media">

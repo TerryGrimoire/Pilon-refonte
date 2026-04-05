@@ -19,6 +19,16 @@ const chiffre = [
     numero: "300+",
     description: "actions menées chaque année",
   },
+  {
+    id: 5,
+    numero: "4",
+    description: "associations partenaires",
+  },
+  {
+    id: 6,
+    numero: "100%",
+    description: "des actions gratuites pour les bénéficiaires",
+  },
 ];
 
 export default chiffre;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Faq from "../components/Faq";
 import fleche from "../assets/fleche.png";
 
 import chiffres from "../data/chiffres";
@@ -21,6 +22,11 @@ import presentation6 from "../assets/presentation6.jpg";
 import facebook from "../assets/facebook.png";
 import instagram from "../assets/instagram.png";
 import youtube from "../assets/youtube.png";
+
+import localisation from "../assets/localisation.png";
+import horaires from "../assets/horaires.png";
+import telephone from "../assets/telephone.png";
+import email from "../assets/email.png";
 
 export default function Home({ helmet }) {
   useEffect(() => {
@@ -112,14 +118,10 @@ export default function Home({ helmet }) {
               des Mamies, l'insertion professionnelle et la reconnexion aux
               racines , nous bâtissons une Réunion fière, inclusive et unie.
             </p>
-            <div className="button_container">
-              <Link to="/association" className="button_style">
-                En savoir plus sur l'association
-              </Link>
-              <Link to="/Actions" className="button_style">
-                Découvrir nos actions
-              </Link>
-            </div>
+
+            <Link to="/association" className="button_style">
+              Découvrir l'association
+            </Link>
           </article>
         </div>
         <div />
@@ -184,7 +186,6 @@ export default function Home({ helmet }) {
               <div key={action.id} className="regular_card">
                 <img src={action.image} alt={action.titre} />
                 <h4>{action.titre}</h4>
-                <p>{action.description}</p>
                 <Link to={action.link} className="button_style">
                   Découvrir nos actions
                 </Link>
@@ -319,6 +320,46 @@ export default function Home({ helmet }) {
           ))}
         </div>
       </section>
+      <section className="home_map">
+        <h3>Nous trouver </h3>
+        <div className="duo">
+          <iframe
+            title="carte de localisation du centre LGBT de La Réunion"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.441086419714!2d55.47364431526044!3d-20.88243298609686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b8e7a9c8e7%3A0x6b8c8c8c8c8c8c8!2sCentre%20LGBT%20de%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1700000000000"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          />
+          <div>
+            <h4>Nous retrouver</h4>
+            <ul>
+              <li>
+                <img src={localisation} alt="icone localisation" />
+                11 allée des Jaspes, Saint-Denis
+              </li>
+              <li>
+                <img src={horaires} alt="icone horaires" />
+                Du lundi au vendredi de 9h à 16h
+              </li>
+              <li>
+                <img src={telephone} alt="icone telephone" />
+                06 92 87 30 50
+              </li>
+              <li>
+                <img src={email} alt="icone email" />
+                contact@pilon.re{" "}
+              </li>
+            </ul>
+            <Link to="/association" className="button_style other">
+              En savoir plus sur le centre LGBT
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Faq />
     </main>
   );
 }
