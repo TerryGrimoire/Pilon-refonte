@@ -6,8 +6,10 @@ import Autoplay from "embla-carousel-autoplay";
 import fleche from "../assets/fleche.png";
 
 import chiffres from "../data/chiffres";
+import missions from "../data/missions";
 import actions from "../data/actions";
 import actualite from "../data/actualite";
+import centreLGBT from "../data/centreLGBT";
 
 import video from "../assets/video.mp4";
 import presentation from "../assets/presentation.jpg";
@@ -102,14 +104,13 @@ export default function Home({ helmet }) {
           <article>
             <h3>Qui sommes-nous ?</h3>
             <p>
-              L'association Pilon est une association loi 1901, créée en 2013 à
-              La Réunion, qui a pour but de lutter contre les discriminations et
-              les violences envers les personnes LGBT+ (Lesbiennes, Gays,
-              Bisexuel·le·s, Transgenres, Queer et autres identités de genre et
-              orientations sexuelles minoritaires). Nous œuvrons pour la
-              visibilité, les droits et le bien-être des personnes LGBT+ à
-              travers diverses actions de sensibilisation, d'accompagnement et
-              de soutien.
+              Nous sommes un espace de vie et de solidarité où l’identité LGBT+
+              s’épanouit au cœur de la créolité. Notre mission est de briser
+              l’isolement et le rejet en plaçant la famille, biologique ou de
+              cœur, au centre de nos actions. Nous accompagnons chaque parcours
+              vers l'autonomie et le bien-être. Entre transmission avec le Club
+              des Mamies, l'insertion professionnelle et la reconnexion aux
+              racines , nous bâtissons une Réunion fière, inclusive et unie.
             </p>
             <div className="button_container">
               <Link to="/association" className="button_style">
@@ -122,6 +123,24 @@ export default function Home({ helmet }) {
           </article>
         </div>
         <div />
+      </section>
+
+      <section className="home_missions">
+        <h3>Nos missions</h3>
+        <p>
+          Nous luttons contre le rejet familial et sociétal des personnes LGBT à
+          La Réunion et nos missions s'articulent autour de cinq pilliers
+          fondamentaux.
+        </p>
+        <div className="home_missions_container">
+          {missions.map((mission) => (
+            <div key={mission.id} className="home_missions_card">
+              <img src={mission.image} alt={mission.title} />
+              <h4>{mission.title}</h4>
+              <p>{mission.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="home_chiffres">
@@ -144,23 +163,55 @@ export default function Home({ helmet }) {
         </div>
       </section>
 
-      <section className="home_actions">
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container">
-            {actions.map((action) => (
-              <div key={action.id} className="embla__slide">
-                <img src={action.image} alt={action.title} />
-                <div className="action_card_content">
-                  <div className="veil" />
+      <section className="home_regular">
+        <h3>Nos actions régulières</h3>
+        <p>
+          Nous organisons des actions régulières tout au long de l'année au
+          Centre LGBT de Saint-Denis de La Réunion. Ces actions sont ouvertes à
+          tous et visent à créer un espace de vie et de solidarité pour les
+          personnes LGBT et leurs familles. Nous proposons des permanences psy,
+          des ateliers d'insertion professionnelle, des séances d'information
+          sur la santé sexuelle, des activités de promotion de la santé globale,
+          ainsi que des événements sociaux pour lutter contre l'isolement.
+          Rejoignez-nous pour vivre ces moments de partage et de soutien au sein
+          de notre communauté.
+        </p>
 
-                  <h4> {action.title}</h4>
-                  <p>{action.description}</p>
-                  <Link to={action.link} className="button_style">
-                    Découvrir nos actions
-                  </Link>
-                </div>
+        <div className="regular_container">
+          {actions
+            .filter((action) => action.frequence === "régulier")
+            .map((action) => (
+              <div key={action.id} className="regular_card">
+                <img src={action.image} alt={action.titre} />
+                <h4>{action.titre}</h4>
+                <p>{action.description}</p>
+                <Link to={action.link} className="button_style">
+                  Découvrir nos actions
+                </Link>
               </div>
             ))}
+        </div>
+      </section>
+      <section className="home_actions">
+        <h3>Nos actions phares</h3>
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {actions
+              .filter((action) => action.frequence === "annuelle")
+              .map((action) => (
+                <div key={action.id} className="embla__slide">
+                  <img src={action.image} alt={action.titre} />
+                  <div className="action_card_content">
+                    <div className="veil" />
+
+                    <h4> {action.titre}</h4>
+                    <p>{action.description}</p>
+                    <Link to={action.link} className="button_style other">
+                      Découvrir nos actions
+                    </Link>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>
@@ -203,12 +254,12 @@ export default function Home({ helmet }) {
           <h4>Tu veux soutenir Pilon ou devenir bénévole ?</h4>
           <div>
             <Link to="/Soutenir">
-              <button type="button" className="button_style">
+              <button type="button" className="button_style other">
                 Soutenir Pilon
               </button>
             </Link>
             <Link to="/Soutenir/Benevoles">
-              <button type="button" className="button_style">
+              <button type="button" className="button_style other">
                 Devenir Bénévole
               </button>
             </Link>
@@ -239,6 +290,33 @@ export default function Home({ helmet }) {
           >
             <img src={youtube} alt="logo YouTube" />
           </a>
+        </div>
+      </section>
+      <section className="home_centre">
+        <div className="gradient-rainbow" />
+
+        <h3>Pilon porte le Centre LGBT Nord</h3>
+        <p>
+          Depuis janvier 2026, Pilon est la nouvelle association qui porte le
+          Centre LGBT Nord de La Réunion. De part ses 5 axes fondamentaux autour
+          de la santé et son approche innovante et impactante, Pilon a su
+          obtenir la confiance des institutions. Une enveloppe de 35 000 euros a
+          été allouée pour le fonctionnement du centre par l'Etat.
+        </p>
+
+        <div>
+          {centreLGBT.map((item) => (
+            <div key={item.id} className="duo">
+              <img src={item.image} alt={item.title} />
+              <div>
+                <h4>{item.titre}</h4>
+                <p>{item.description}</p>
+                <Link to="/association" className="button_style other">
+                  En savoir plus sur le centre LGBT
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
