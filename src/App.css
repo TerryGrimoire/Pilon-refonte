@@ -382,7 +382,7 @@ p {
 }
 
  h3 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
@@ -676,7 +676,7 @@ background: var(--secondary-bg-color);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10vh 12.5vw;
+  padding: 10vh 15vw;
   margin: 120px 0;
   text-align: center;
   position: relative;
@@ -765,4 +765,174 @@ background: var(--secondary-bg-color);
   margin: 0px auto 40px ;
   text-align: center;
 
+}
+
+.home_approche {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 10vh 12.5vw;
+  text-align: center;
+}
+
+.home_approche_images {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.home_approche_text {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.home_approche_text article {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 20px;
+}
+
+.home_approche_text article img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+
+.home_approche_text article h3 {
+  font-family: var(--font-0);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.home_approche_text article p {
+  color: var(--third-color);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.home_approche_images {
+  display: grid;
+  /* On crée 3 colonnes égales */
+  grid-template-columns: repeat(3, 1fr); 
+  /* On définit la hauteur des lignes pour qu'elles soient carrées */
+  grid-auto-rows: 1fr; 
+  gap: 15px;
+  width: 50%;
+  max-width: 1000px; /* À ajuster selon ton besoin */
+}
+
+.home_approche_images img {
+  width: 100%;
+  height: 100%; /* Force l'image à remplir sa cellule de grille */
+  object-fit: cover; /* Recadre proprement sans déformer */
+  border-radius: 8px;
+}
+
+/* La grande image (en haut à gauche) occupe 2 colonnes et 2 lignes */
+.img-large {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto; /* Elle suit la taille de ses 4 cellules */
+}
+
+/* On force toutes les autres à être des carrés parfaits */
+.home_approche_images img:not(.img-large) {
+  aspect-ratio: 1 / 1;
+}
+
+/* Responsive : On repasse sur 2 colonnes sur tablette/mobile */
+@media (max-width: 768px) {
+  .home_approche_images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .img-large {
+    grid-column: span 2;
+  }
+}
+
+.home_social {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 5vw;
+}
+
+.home_social img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+.home_social div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home_social h4 {
+  font-family: var(--font-0);
+  font-size: 3rem;
+  color: var(--third-color);
+  margin-bottom: 20px;
+  width: 40%;
+  text-align: right;
+}
+
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10vw;
+  position: relative;
+}
+
+.footer img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.footer p {
+ 
+  font-size: 1rem;
+  text-align: center;
+  width: 50%;
+}
+
+.footer a {
+  margin-top: 10px;
+  color: var(--button-color);
+  font-weight: 600;
+ 
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home_phare {
+  margin: 60px auto;
 }

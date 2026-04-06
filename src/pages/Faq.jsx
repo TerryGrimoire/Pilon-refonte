@@ -1,6 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useMemo } from "react";
-import { ChevronDown } from "lucide-react";
+import { Helmet } from "react-helmet";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
+import heroImage from "../assets/camping.jpg";
+
+// --- COMPOSANT FAQ ITEM (INDIVIDUEL) ---
 function FaqItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,6 +34,7 @@ function FaqItem({ question, answer }) {
             fontWeight: "500",
             color: "#191919",
             paddingRight: "15px",
+            fontFamily: "var(--font-3)", // Outfit
           }}
         >
           {question}
@@ -59,6 +65,7 @@ function FaqItem({ question, answer }) {
             lineHeight: "1.7",
             fontSize: "15px",
             margin: 0,
+            fontFamily: "var(--font-3)", // Outfit
           }}
         >
           {answer}
@@ -68,9 +75,157 @@ function FaqItem({ question, answer }) {
   );
 }
 
-function Faq() {
+// --- COMPOSANT HERO IMMERSIF (AVEC PHOTO) ---
+function Hero() {
+  const accentColor = "rgb(190, 3, 34)";
+  // Image illustrative d'un moment de partage/écoute
+  const bgImage = heroImage;
+
+  return (
+    <section
+      className="home_hero"
+      style={{ height: "75vh", position: "relative" }}
+    >
+      {/* Filtre sombre (veil) pour la lisibilité */}
+      <div
+        className="veil"
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(0,0,0,0.6)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Image d'arrière-plan */}
+      <img
+        src={bgImage}
+        alt="Écoute et partage Pilon"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          position: "absolute",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Contenu textuel */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          textAlign: "center",
+          padding: "0 5vw",
+        }}
+      >
+        <div
+          style={{
+            display: "inline-block",
+            padding: "6px 12px",
+            backgroundColor: "#fff",
+            color: "#000",
+            fontSize: "11px",
+            fontWeight: "800",
+            textTransform: "uppercase",
+            letterSpacing: "1px",
+            marginBottom: "24px",
+            borderRadius: "2px",
+            fontFamily: "var(--font-3)",
+          }}
+        >
+          Centre LGBT+ Nord - Pilon
+        </div>
+
+        <p
+          style={{
+            fontSize: "19px",
+            lineHeight: "1.6",
+            color: "rgba(255,255,255,0.9)",
+            maxWidth: "650px",
+            marginBottom: "40px",
+            fontFamily: "var(--font-3)", // Outfit
+          }}
+        >
+          Droits, santé, famille, culture : vous avez des questions, nous avons
+          l'expérience. Trouvez ici les réponses pour avancer sereinement.
+        </p>
+
+        {/* Boutons d'action cohérents */}
+        <div
+          style={{
+            display: "flex",
+            gap: "15px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginBottom: "50px",
+          }}
+        >
+          <button
+            type="button"
+            style={{
+              padding: "16px 32px",
+              backgroundColor: accentColor, // Rouge Pilon
+              color: "#FFFFFF",
+              border: "none",
+              borderRadius: "4px",
+              fontSize: "15px",
+              fontWeight: "800",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              fontFamily: "var(--font-3)",
+              textTransform: "uppercase",
+            }}
+          >
+            Poser une question <ArrowRight size={18} />
+          </button>
+          <button
+            type="button"
+            style={{
+              padding: "16px 32px",
+              backgroundColor: "transparent",
+              color: "#FFFFFF",
+              border: "2px solid #FFFFFF",
+              borderRadius: "4px",
+              fontSize: "15px",
+              fontWeight: "800",
+              cursor: "pointer",
+              fontFamily: "var(--font-3)",
+              textTransform: "uppercase",
+            }}
+          >
+            Nous contacter
+          </button>
+        </div>
+      </div>
+
+      {/* Barre Arc-en-ciel Signature en bas du Hero */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "6px",
+          background:
+            "linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #9400D3)",
+          zIndex: 3,
+        }}
+      />
+    </section>
+  );
+}
+
+// --- PAGE FAQ COMPLÈTE ---
+function FaqPage() {
   const faqData = [
-    // THÈME : SANTÉ & BIEN-ÊTRE
     {
       Catégorie: "Santé",
       Question: "Les permanences psychologiques sont-elles gratuites ?",
@@ -101,8 +256,6 @@ function Faq() {
       Réponse:
         "C'est un pôle qui vous aide à gérer votre budget, à comprendre vos droits aux aides (RSA, APL) et à monter des dossiers de surendettement si besoin.",
     },
-
-    // THÈME : FAMILLE & REJET
     {
       Catégorie: "Famille",
       Question: "Que faire si je suis mis à la porte par mes parents ?",
@@ -133,8 +286,6 @@ function Faq() {
       Réponse:
         "Oui, avec l'aide de notre psychologue, nous facilitons le dialogue pour lutter contre le rejet familial.",
     },
-
-    // THÈME : INSERTION & EMPLOI
     {
       Catégorie: "Social",
       Question: "C'est quoi le programme d'insertion professionnelle ?",
@@ -165,8 +316,6 @@ function Faq() {
       Réponse:
         "Oui, la première fois est libre. C'est un excellent moyen de découvrir l'association sans pression.",
     },
-
-    // THÈME : CULTURE & RACINES
     {
       Catégorie: "Culture",
       Question: "C'est quoi le Maloya Kwir ?",
@@ -197,8 +346,6 @@ function Faq() {
       Réponse:
         "Oui, lors des séances de Maloya Kwir, nous initions au rouleur, au kayamb et au triangle.",
     },
-
-    // THÈME : ÉVÉNEMENTS & SORTIES
     {
       Catégorie: "Événements",
       Question: "C'est quoi le pique-nique arc-en-ciel ?",
@@ -229,8 +376,6 @@ function Faq() {
       Réponse:
         "Oui, chaque année nous organisons la conférence des parents et tenons un village associatif sur le campus.",
     },
-
-    // THÈME : ENGAGEMENT & PRATIQUE
     {
       Catégorie: "Engagement",
       Question: "Comment adhérer à l'association ?",
@@ -275,79 +420,94 @@ function Faq() {
       : faqData.filter((item) => item.Catégorie === categorieActive);
 
   return (
-    <div
-      style={{
-        maxWidth: "850px",
-        margin: "60px auto",
-        padding: "0 20px",
-        backgroundColor: "#FFFFFF",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <h2
-        style={{
-          color: "#191919",
-          fontSize: "36px",
-          marginBottom: "8px",
-          fontWeight: "800",
-          textAlign: "center",
-        }}
-      >
-        Questions fréquentes
-      </h2>
-      <p
-        style={{
-          textAlign: "center",
-          color: "#666",
-          marginBottom: "40px",
-          fontSize: "18px",
-        }}
-      >
-        Nout l'association, nout l'accompagnement
-      </p>
+    <div style={{ backgroundColor: "#FFFFFF" }}>
+      <Helmet>
+        <title>Questions Fréquentes | Pilon</title>
+      </Helmet>
 
-      {/* FILTRES SOBRES */}
+      <Hero />
+
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "8px",
-          justifyContent: "center",
-          marginBottom: "50px",
+          maxWidth: "850px",
+          margin: "80px auto 100px auto",
+          padding: "0 20px",
         }}
       >
-        {listeCategories.map((cat) => (
-          <button
-            type="button"
-            key={cat}
-            onClick={() => setCategorieActive(cat)}
-            style={{
-              padding: "10px 18px",
-              border: "1.5px solid #191919",
-              borderRadius: "4px",
-              backgroundColor:
-                categorieActive === cat ? "#191919" : "transparent",
-              color: categorieActive === cat ? "#FFFFFF" : "#191919",
-              cursor: "pointer",
-              fontSize: "13px",
-              fontWeight: "600",
-              textTransform: "uppercase",
-              letterSpacing: "0.5px",
-              transition: "0.2s",
-            }}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+        <h2
+          style={{
+            color: "#191919",
+            fontSize: "36px",
+            marginBottom: "8px",
+            fontWeight: "800",
+            textAlign: "center",
+            fontFamily: "var(--font-0)", // Bebas Neue
+            textTransform: "uppercase",
+          }}
+        >
+          Questions fréquentes
+        </h2>
+        <p
+          style={{
+            textAlign: "center",
+            color: "#666",
+            marginBottom: "50px",
+            fontSize: "17px",
+            fontFamily: "var(--font-3)", // Outfit
+          }}
+        >
+          Nout l'association, nout l'accompagnement.
+        </p>
 
-      <div style={{ borderTop: "2px solid #191919" }}>
-        {questionsFiltrees.map((item) => (
-          <FaqItem question={item.Question} answer={item.Réponse} />
-        ))}
+        {/* FILTRES COHÉRENTS */}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            justifyContent: "center",
+            marginBottom: "60px",
+          }}
+        >
+          {listeCategories.map((cat) => (
+            <button
+              type="button"
+              key={cat}
+              onClick={() => setCategorieActive(cat)}
+              style={{
+                padding: "10px 18px",
+                border: "1.5px solid #191919",
+                borderRadius: "4px",
+                backgroundColor:
+                  categorieActive === cat ? "#191919" : "transparent",
+                color: categorieActive === cat ? "#FFFFFF" : "#191919",
+                cursor: "pointer",
+                fontSize: "12px",
+                fontWeight: "700",
+                textTransform: "uppercase",
+                letterSpacing: "0.5px",
+                transition: "0.2s",
+                fontFamily: "var(--font-3)",
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* LISTE FAQ */}
+        <div style={{ borderTop: "2px solid #191919" }}>
+          {questionsFiltrees.map((item, index) => (
+            <FaqItem
+              key={index}
+              question={item.Question}
+              answer={item.Réponse}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-export default Faq;
+export default FaqPage;

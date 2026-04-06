@@ -1,49 +1,386 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable no-return-assign */
+import React from "react";
 import { Helmet } from "react-helmet";
-import Form from "../components/Contact/Form";
+import { Mail, MapPin, Phone } from "lucide-react";
 
-function Contact({ helmet }) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const [rdv, setRdv] = useState(true);
+// --- IMPORTS DES LOGOS RÉSEAUX (ASSETS LOCAUX) ---
+import facebook from "../assets/facebook2.png";
+import instagram from "../assets/instagram2.png";
+import linkedin from "../assets/linkedin2.png";
+import youtube from "../assets/youtube2.png";
+import tiktok from "../assets/tiktok2.png";
+
+function ContactPage() {
+  const accentColor = "rgb(190, 3, 34)";
+
+  // Style commun pour les petits logos réseaux
+  const socialIconStyle = {
+    width: "24px",
+    height: "24px",
+    objectFit: "contain",
+    transition: "0.2s",
+    filter: "grayscale(100%)", // Optionnel : pour un look noir & blanc qui devient coloré au survol
+  };
+
   return (
-    <div className="flex flex-col align-center">
+    <div style={{ backgroundColor: "#FFFFFF", minHeight: "100vh" }}>
       <Helmet>
-        <title> {helmet.title} | Contact </title>
-        <link rel="canonical" href={`${helmet.href}/Services`} />
-        <meta name="description" content={helmet.description} />
+        <title>Contact | Pilon</title>
       </Helmet>
-      <h2>Nous joindre</h2>
-      <section>
-        <div className="flex justify-center margin1r0 ">
-          <button
-            type="button"
-            className="button_style margin0r1r"
-            onClick={() => setRdv(true)}
+
+      {/* --- HERO SECTION --- */}
+      <section
+        style={{
+          height: "45vh",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          color: "#FFF",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          className="veil"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.75)",
+            zIndex: 1,
+          }}
+        />
+        <img
+          src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070"
+          alt="Contact Pilon"
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 2, padding: "0 20px" }}>
+          <h1
+            style={{
+              fontFamily: "var(--font-0)",
+              fontSize: "clamp(50px, 10vw, 90px)",
+              textTransform: "uppercase",
+              margin: 0,
+              lineHeight: "0.9",
+            }}
           >
-            Prendre un rdv
-          </button>
-          <button
-            type="button"
-            className="button_style margin0r1r"
-            onClick={() => setRdv(false)}
-          >
-            Envoyer un email
-          </button>
+            Restons <br />
+            <span style={{ color: accentColor, fontFamily: "var(--font-0)" }}>
+              Connectés
+            </span>
+          </h1>
         </div>
-        {rdv ? (
-          <iframe
-            src="https://calendly.com/terry-grimoire/30min?month=2022-08"
-            frameBorder="0"
-            title="calendly terry grimoire"
-          />
-        ) : (
-          <Form />
-        )}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
+            height: "6px",
+            background:
+              "linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #9400D3)",
+            zIndex: 3,
+          }}
+        />
+      </section>
+
+      {/* --- CONTENT SECTION --- */}
+      <section
+        style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 20px" }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "60px",
+          }}
+        >
+          {/* INFOS DE CONTACT */}
+          <div>
+            <h2
+              style={{
+                fontFamily: "var(--font-0)",
+                fontSize: "40px",
+                textTransform: "uppercase",
+                marginBottom: "40px",
+              }}
+            >
+              Nos{" "}
+              <span style={{ color: accentColor, fontFamily: "var(--font-0)" }}>
+                Coordonnées
+              </span>
+            </h2>
+
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "30px" }}
+            >
+              {/* ADRESSE */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#191919",
+                    padding: "12px",
+                    borderRadius: "8px",
+                    color: "#FFF",
+                  }}
+                >
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      fontWeight: "900",
+                      margin: "0 0 5px 0",
+                      textTransform: "uppercase",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Adresse
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      color: "#555",
+                      margin: 0,
+                    }}
+                  >
+                    Centre LGBTQIA+ de la Source
+                    <br />
+                    11 Allée des Jaspes, 97400 Saint-Denis
+                  </p>
+                </div>
+              </div>
+
+              {/* TÉLÉPHONE */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#191919",
+                    padding: "12px",
+                    borderRadius: "8px",
+                    color: "#FFF",
+                  }}
+                >
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      fontWeight: "900",
+                      margin: "0 0 5px 0",
+                      textTransform: "uppercase",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Téléphone
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      color: "#555",
+                      margin: 0,
+                    }}
+                  >
+                    06 93 87 30 50
+                  </p>
+                </div>
+              </div>
+
+              {/* EMAIL */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#191919",
+                    padding: "12px",
+                    borderRadius: "8px",
+                    color: "#FFF",
+                  }}
+                >
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      fontWeight: "900",
+                      margin: "0 0 5px 0",
+                      textTransform: "uppercase",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Email
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-3)",
+                      color: "#555",
+                      margin: 0,
+                    }}
+                  >
+                    contact@pilon.re
+                  </p>
+                </div>
+              </div>
+
+              {/* RÉSEAUX SOCIAUX AVEC LOGOS PNG */}
+              <div style={{ marginTop: "20px" }}>
+                <h4
+                  style={{
+                    fontFamily: "var(--font-3)",
+                    fontWeight: "900",
+                    margin: "0 0 15px 0",
+                    textTransform: "uppercase",
+                    fontSize: "14px",
+                  }}
+                >
+                  Suivez l'aventure
+                </h4>
+                <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                  <a
+                    href="https://facebook.com/pilon"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={facebook}
+                      alt="Facebook"
+                      style={socialIconStyle}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.filter = "none")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.filter = "grayscale(100%)")
+                      }
+                    />
+                  </a>
+                  <a
+                    href="https://instagram.com/pilon_re"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={instagram}
+                      alt="Instagram"
+                      style={socialIconStyle}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.filter = "none")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.filter = "grayscale(100%)")
+                      }
+                    />
+                  </a>
+                  <a
+                    href="https://tiktok.com/@pilon_re"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={tiktok}
+                      alt="TikTok"
+                      style={socialIconStyle}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.filter = "none")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.filter = "grayscale(100%)")
+                      }
+                    />
+                  </a>
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={youtube}
+                      alt="YouTube"
+                      style={socialIconStyle}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.filter = "none")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.filter = "grayscale(100%)")
+                      }
+                    />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={linkedin}
+                      alt="LinkedIn"
+                      style={socialIconStyle}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.filter = "none")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.filter = "grayscale(100%)")
+                      }
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CARTE INTERACTIVE */}
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                minHeight: "500px",
+                backgroundColor: "#EEE",
+                borderRadius: "15px",
+                overflow: "hidden",
+                border: "2px solid #191919",
+                boxShadow: "15px 15px 0px #191919",
+              }}
+            >
+              <iframe
+                title="Localisation Centre LGBT"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3283281483864!2d55.45265437593259!3d-20.890691168051603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21827f87a3875555%3A0xc3f5b722d5f2f534!2s11%20All.%20des%20Jaspes%2C%20Saint-Denis%2097400%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
 }
 
-export default Contact;
+export default ContactPage;
