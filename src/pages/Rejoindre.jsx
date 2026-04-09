@@ -1,14 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import { Helmet } from "react-helmet";
-import {
-  ArrowRight,
-  Heart,
-  Users,
-  Sparkles,
-  ShieldCheck,
-  Mail,
-} from "lucide-react";
+import { ArrowRight, Heart, Users, Sparkles, ShieldCheck } from "lucide-react";
 
 // --- COMPOSANT SECTION TITLE ---
 function SectionTitle({ subtitle, title, centered = true }) {
@@ -156,8 +149,7 @@ function JoinUsPage() {
               marginBottom: "20px",
             }}
           >
-            Ansanm, nou lé <br />{" "}
-            <span style={{ color: accentColor }}>pli for</span>.
+            nou lé <span style={{ color: accentColor }}>Ansanm</span>.
           </h1>
           <p
             style={{
@@ -201,9 +193,9 @@ function JoinUsPage() {
           }}
         >
           {[
-            { n: "+500", t: "Adhérents" },
-            { n: "15", t: "Ateliers / Mois" },
-            { n: "+2000", t: "Bénéficiaires" },
+            { n: "74", t: "Adhérents" },
+            { n: "27", t: "Bénévoles" },
+            { n: "+3000", t: "Bénéficiaires" },
           ].map((s) => (
             <div>
               <div
@@ -304,27 +296,33 @@ function JoinUsPage() {
               <strong>• Activités gratuites</strong> (Volley Rose, Pêche,
               Ateliers couture...).
               <br />
-              <strong>• Droit de vote</strong> lors de nos assemblées générales.
+              <strong>• informations en avant première</strong> sur tous nos
+              événements.
             </p>
-            <button
-              type="button"
-              style={{
-                backgroundColor: "#191919",
-                color: "#FFF",
-                border: "none",
-                padding: "18px 40px",
-                fontFamily: "var(--font-3)",
-                fontWeight: "800",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                borderRadius: "4px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
+            <a
+              href="https://www.helloasso.com/associations/pilon/adhesions/adherer-a-l-association"
+              target="_blink"
             >
-              Adhérer à l'association <ArrowRight size={18} />
-            </button>
+              <button
+                type="button"
+                style={{
+                  backgroundColor: "#191919",
+                  color: "#FFF",
+                  border: "none",
+                  padding: "18px 40px",
+                  fontFamily: "var(--font-3)",
+                  fontWeight: "800",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  borderRadius: "4px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                Adhérer à l'association <ArrowRight size={18} />
+              </button>
+            </a>
           </div>
         </div>
       </section>
@@ -403,20 +401,26 @@ function JoinUsPage() {
                 </div>
               ))}
             </div>
-            <button
-              type="button"
-              style={{
-                border: "2px solid #191919",
-                padding: "12px 25px",
-                fontFamily: "var(--font-3)",
-                fontWeight: "800",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                background: "none",
-              }}
+            <a
+              href="https://www.helloasso.com/associations/pilon/adhesions/adherer-a-l-association"
+              target="_blink"
             >
-              Devenir bénévole
-            </button>
+              {" "}
+              <button
+                type="button"
+                style={{
+                  border: "2px solid #191919",
+                  padding: "12px 25px",
+                  fontFamily: "var(--font-3)",
+                  fontWeight: "800",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  background: "none",
+                }}
+              >
+                Devenir bénévole
+              </button>
+            </a>
           </div>
 
           {/* DONS */}
@@ -453,70 +457,29 @@ function JoinUsPage() {
               matériel des ateliers et l'aide d'urgence pour les jeunes en
               rupture familiale.
             </p>
-            <button
-              type="button"
-              style={{
-                backgroundColor: accentColor,
-                color: "#FFF",
-                border: "none",
-                padding: "18px",
-                fontFamily: "var(--font-3)",
-                fontWeight: "800",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                borderRadius: "4px",
-              }}
+            <a
+              href="https://www.helloasso.com/associations/pilon/formulaires/2"
+              target="_blink"
             >
-              Faire un don
-            </button>
+              {" "}
+              <button
+                type="button"
+                style={{
+                  backgroundColor: accentColor,
+                  color: "#FFF",
+                  border: "none",
+                  padding: "18px",
+                  fontFamily: "var(--font-3)",
+                  fontWeight: "800",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  borderRadius: "4px",
+                }}
+              >
+                Faire un don
+              </button>
+            </a>
           </div>
-        </div>
-      </section>
-
-      {/* --- NEWSLETTER --- */}
-      <section
-        style={{
-          borderTop: "1px solid #E0E0E0",
-          padding: "80px 20px",
-          backgroundColor: "#FFF",
-        }}
-      >
-        <div
-          style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}
-        >
-          <Mail size={40} style={{ color: "#191919", marginBottom: "20px" }} />
-          <SectionTitle
-            title="Newsletter"
-            subtitle="Restez informé des prochains événements et ateliers."
-          />
-          <form style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-            <input
-              type="email"
-              placeholder="Votre email"
-              style={{
-                flex: 1,
-                padding: "15px",
-                border: "1.5px solid #E0E0E0",
-                borderRadius: "4px",
-                fontFamily: "var(--font-3)",
-              }}
-            />
-            <button
-              type="button"
-              style={{
-                backgroundColor: "#191919",
-                color: "#FFF",
-                border: "none",
-                padding: "0 25px",
-                fontFamily: "var(--font-3)",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                borderRadius: "4px",
-              }}
-            >
-              S'inscrire
-            </button>
-          </form>
         </div>
       </section>
     </div>

@@ -1,19 +1,11 @@
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from "react";
-import {
-  MapPin,
-  Users,
-  Heart,
-  Briefcase,
-  Coffee,
-  TrendingUp,
-  ShieldCheck,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Users, Briefcase, Coffee, ShieldCheck } from "lucide-react";
+
+import centreLGBT from "../assets/centreLGBT.jpg";
 
 function PageCentreLGBT() {
-  const imageUrl =
-    "https://images.unsplash.com/photo-1573161158362-597243bd9d20?q=80&w=2069&auto=format&fit=crop";
-
   useEffect(() => {
     window.scrollTo(0, 0);
     const observer = new IntersectionObserver(
@@ -32,17 +24,25 @@ function PageCentreLGBT() {
 
   const stats = [
     {
-      chiffre: "+450",
+      chiffre: "582",
       label: "Personnes accueillies",
       desc: "Depuis janvier 2026",
     },
     {
-      chiffre: "65%",
+      chiffre: "56",
       label: "Nouveaux visages",
       desc: "Première visite au centre",
     },
-    { chiffre: "120", label: "Permanences", desc: "Psy & Sociales assurées" },
-    { chiffre: "5", label: "Associations", desc: "Co-pilotage du local" },
+    {
+      chiffre: "43",
+      label: "actions réalisées",
+      desc: "Ateliers, formations, activités, événements",
+    },
+    {
+      chiffre: "1142",
+      label: "Heures de bénévolat",
+      desc: "Une implication de la communauté",
+    },
   ];
 
   const styles = {
@@ -104,8 +104,7 @@ function PageCentreLGBT() {
             maxWidth: "800px",
           }}
         >
-          Un sanctuaire de droits, de solidarité et de culture au cœur de
-          Saint-Denis.
+          Un espace de solidarité et de culture au cœur de Saint-Denis.
         </p>
         <div
           style={{
@@ -139,9 +138,7 @@ function PageCentreLGBT() {
             }}
           >
             <div style={{ flex: 1, minWidth: "350px" }}>
-              <h2 style={styles.h2}>
-                UN MODÈLE UNIQUE <br />À LA RÉUNION
-              </h2>
+              <h2 style={styles.h2}>UNe nouvelle direction</h2>
               <p
                 style={{
                   fontFamily: "var(--font-4)",
@@ -150,8 +147,9 @@ function PageCentreLGBT() {
                   color: "var(--third-color)",
                 }}
               >
-                Situé au 11 allée des Jaspes, ce local est mis à disposition par
-                la <strong>Mairie de Saint-Denis</strong>. C'est actuellement le{" "}
+                Situé au 11 allée des Jaspes, le local du Centre LGBT Nord de La
+                Réunion est mis à disposition par la{" "}
+                <strong>Mairie de Saint-Denis</strong>. C'est actuellement le{" "}
                 <strong>seul local associatif LGBT+</strong> offert par une
                 municipalité sur toute l'île.
               </p>
@@ -164,15 +162,21 @@ function PageCentreLGBT() {
                   marginTop: "15px",
                 }}
               >
-                Pilon assure la gestion et le lead, mais nous ne sommes pas
-                seuls : le local est co-piloté avec{" "}
-                <strong>4 autres associations partenaires</strong>, créant un
-                véritable pôle de compétences pour notre communauté.
+                Depuis Janvier 2026,{" "}
+                <strong>
+                  Pilon est officiellement le nouveau porteur de projet du
+                  Centre LGBT Nord
+                </strong>
+                . Pour mener à bien cette mission, Pilon s'appuie sur une{" "}
+                <strong>gouvernance partagée en copilotage</strong> avec trois
+                associations partenaires : Requeer, Kwir Mouvman et Timizé.
+                Ensemble, nous insufflons une énergie nouvelle pour répondre aux
+                besoins de notre communauté.
               </p>
             </div>
             <div style={{ flex: 1, minWidth: "350px", position: "relative" }}>
               <img
-                src={imageUrl}
+                src={centreLGBT}
                 alt="Local"
                 style={{
                   width: "100%",
@@ -225,9 +229,8 @@ function PageCentreLGBT() {
               gap: "30px",
             }}
           >
-            {stats.map((s, i) => (
+            {stats.map((s) => (
               <div
-                key={i}
                 style={{
                   textAlign: "center",
                   padding: "40px",
@@ -282,8 +285,8 @@ function PageCentreLGBT() {
                 ACCOMPAGNEMENT INDIVIDUEL
               </h4>
               <p style={{ fontFamily: "var(--font-3)", fontSize: "0.9rem" }}>
-                Permanences psychologiques et assistance sociale hebdomadaires
-                pour répondre aux urgences de vie.
+                Permanences psychologiques et assistance sociale une fois par
+                mois pour répondre aux besoins spécifiques.
               </p>
             </div>
 
@@ -322,7 +325,7 @@ function PageCentreLGBT() {
               </h4>
               <p style={{ fontFamily: "var(--font-3)", fontSize: "0.9rem" }}>
                 Soirées jeux, ateliers créatifs et espaces de parole pour que
-                personne ne reste seul face à son écran.
+                personne ne reste seul.
               </p>
             </div>
           </div>
@@ -355,22 +358,31 @@ function PageCentreLGBT() {
                 flexWrap: "wrap",
               }}
             >
-              <button
-                className="button_style other"
-                style={{ backgroundColor: "#fff", color: "#000" }}
-              >
-                NOUS CONTACTER
-              </button>
-              <button
-                className="button_style other"
-                style={{
-                  backgroundColor: "#000",
-                  color: "#fff",
-                  border: "1px solid #000",
-                }}
-              >
-                S'INSCRIRE AUX ATELIERS
-              </button>
+              <Link to="/contact">
+                {" "}
+                <button
+                  type="button"
+                  className="button_style other"
+                  style={{ backgroundColor: "#fff", color: "#000" }}
+                >
+                  NOUS CONTACTER
+                </button>
+              </Link>
+
+              <Link to="/Rejoindre">
+                {" "}
+                <button
+                  type="button"
+                  className="button_style other"
+                  style={{
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    border: "1px solid #000",
+                  }}
+                >
+                  Rejoindre Pilon
+                </button>
+              </Link>
             </div>
           </div>
         </section>

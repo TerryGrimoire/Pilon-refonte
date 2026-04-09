@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Users, Heart, Target, Sparkles } from "lucide-react";
 import histoire from "../assets/histoire.jpeg";
 import centre from "../assets/centreLGBT.jpg";
@@ -7,8 +8,7 @@ import pilon from "../assets/maloya2.jpg";
 import myriam from "../assets/myriam.jfif";
 import amandine from "../assets/amandine.jpg";
 import dorine from "../assets/dorine.jpg";
-import tommy from "../assets/tommy.jfif";
-import adrien from "../assets/adrien.jfif";
+import tommy from "../assets/logoa.png";
 import jocelyne from "../assets/jocelyne.jpg";
 import marie from "../assets/marie.jpg";
 import berthe from "../assets/berthe.jpg";
@@ -43,7 +43,7 @@ function PageAssociationPilon() {
     { nom: "Amandine Augerai", poste: "Trésorière", photo: amandine },
     { nom: "Dorine Treport", poste: "Trésorière adjointe", photo: dorine },
     { nom: "Tommy Pothin", poste: "Secrétaire", photo: tommy },
-    { nom: "Adrien Techer", poste: "Secrétaire adjoint", photo: adrien },
+    { nom: "Adrien Techer", poste: "Secrétaire adjoint", photo: tommy },
   ];
 
   const salaries = [
@@ -484,13 +484,15 @@ function PageAssociationPilon() {
           }}
           className="reveal"
         >
-          <button
-            type="button"
-            className="button_style"
-            style={{ padding: "20px 50px", fontSize: "1.1rem" }}
-          >
-            REJOINDRE NOUT FAMILLE
-          </button>
+          <Link to="/Rejoindre">
+            <button
+              type="button"
+              className="button_style"
+              style={{ padding: "20px 50px", fontSize: "1.1rem" }}
+            >
+              REJOINDRE NOUT FAMILLE
+            </button>
+          </Link>
           <div
             style={{
               marginTop: "20px",

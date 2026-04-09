@@ -936,3 +936,225 @@ background: var(--secondary-bg-color);
 .home_phare {
   margin: 60px auto;
 }
+
+span {
+   font-family: var(--font-0),
+}
+
+@media (max-width: 768px) {
+  section {
+    flex-direction: column; /* On aligne les éléments verticalement au lieu de horizontalement */
+  }
+  
+  .menu {
+    display: none; /* Cache le menu classique pour mettre un menu burger plus tard */
+  }
+}
+
+/********************************************************************* RESPONSIVE PIELON (Mobile & Tablette) *********************************************************************/
+
+@media (max-width: 1024px) {
+  /* Ajustement global des paddings pour ne pas coller aux bords */
+  section {
+    padding: 40px 5vw !important;
+  }
+
+  section.home_hero {
+    padding: 0 !important; /* Le hero doit prendre toute la largeur */
+  }
+
+  /* HERO - Ajustement du titre pour qu'il ne cache pas tout l'écran */
+  .home_hero h1 {
+    font-size: 2.2rem;
+    top: 50%;
+    width: 90%;
+  }
+
+  /* PRÉSENTATION - L'image passe au dessus du texte */
+  .home_presentation > div {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .embla, .home_presentation article {
+    width: 100% !important;
+    margin-left: 0;
+    padding: 20px 0;
+  }
+  .home_presentation article p {
+    margin-bottom: 20px;
+  }
+
+  /* APPROCHE - Inversion pour avoir le texte avant la grille d'images */
+  .home_approche {
+    flex-direction: column-reverse;
+  }
+  .home_approche_text, .home_approche_images {
+    width: 100% !important;
+    padding: 10px 0;
+  }
+
+  /* MISSIONS - Les cartes passent à 1 par ligne ou 2 selon la place */
+  .home_missions_container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .home_missions_container > div {
+    width: 100% !important;
+    margin: 10px 0;
+    height: auto;
+  }
+  .home_missions > p {
+    width: 100%;
+  }
+
+  /* CHIFFRES - Passage en 2 colonnes */
+  .home_chiffres {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home_chiffres_description, .home_chiffres_chiffre {
+    width: 100% !important;
+    margin-right: 0;
+  }
+  .home_chiffres_chiffre > div {
+    width: 45%; /* Garde 2 chiffres par ligne */
+  }
+
+  /* ACTIONS RÉGULIÈRES - On évite que les carrés soient trop petits */
+  .home_regular .regular_card {
+    width: 100% ;
+    height: auto;
+  }
+
+  /* SECTION CENTRE LGBT & MAP - On empile les éléments */
+  .duo {
+    flex-direction: column !important; /* Force l'empilement même pour le nth-of-type(2n) */
+  }
+  .duo > *, .home_map .duo iframe, .home_map .duo div {
+    width: 100% !important;
+  }
+  .home_map .duo iframe {
+    height: 300px;
+  }
+
+  /* RÉSEAUX SOCIAUX - On centre tout pour le mobile */
+  .home_social {
+    align-items: center;
+    text-align: center;
+  }
+  .home_social h4 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .home_social div {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .home_social img {
+    margin: 5px;
+  }
+
+  /* BOUTONS - On les met l'un sous l'autre pour cliquer facilement avec le pouce */
+  .home_soutenir div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .button_style {
+    margin: 10px 0 !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* CHIFFRES - 1 seul par ligne sur petit téléphone */
+  .home_chiffres_chiffre > div {
+    width: 100%;
+  }
+  
+  .home_hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* --- Style du Header --- */
+.header {
+  padding: 10px 20px;
+  background-color: transparent; /* Ou transparent selon ton design */
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.desktop_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Menu Burger (Caché sur ordinateur) --- */
+.burger_icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger_icon span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+
+/* --- Liens de navigation --- */
+.nav_links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav_links a {
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--font-0);
+}
+
+/* --- RESPONSIVE : Le mode Mobile --- */
+@media (max-width: 768px) {
+  .burger_icon {
+    display: flex; /* On affiche l'icône burger */
+  }
+
+  .nav_links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Caché à droite par défaut */
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+    gap: 30px;
+  }
+
+  .nav_links.active {
+    right: 0; /* On l'affiche quand l'état est "active" */
+  }
+
+  /* Animation du burger en "X" quand on ouvre */
+  .burger_icon.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .burger_icon.open span:nth-child(2) { opacity: 0; }
+  .burger_icon.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+}

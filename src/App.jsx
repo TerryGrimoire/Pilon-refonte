@@ -20,9 +20,11 @@ import "./App.css";
 
 function App() {
   const helmet = {
-    title: "Association Pilon | Association LGBT à La Réunion",
+    title:
+      "Association Pilon | Association LGBT portant le Centre LGBT Nord de La Réunion",
     href: "https://www.pilon.re",
-    description: "Change description",
+    description:
+      "Depuis janvier 2026, Pilon est l'association qui porte le Centre LGBT Nord de La Réunion.",
   };
   return (
     <BrowserRouter>

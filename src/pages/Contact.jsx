@@ -263,7 +263,7 @@ function ContactPage() {
                 </h4>
                 <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                   <a
-                    href="https://facebook.com/pilon"
+                    href="https://www.facebook.com/associationpilon"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -280,7 +280,7 @@ function ContactPage() {
                     />
                   </a>
                   <a
-                    href="https://instagram.com/pilon_re"
+                    href="https://www.instagram.com/pilon_reunion/"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -297,7 +297,7 @@ function ContactPage() {
                     />
                   </a>
                   <a
-                    href="https://tiktok.com/@pilon_re"
+                    href="https://www.tiktok.com/@association.pilon?_r=1&_t=ZN-95OxYIxuGk2"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -314,7 +314,7 @@ function ContactPage() {
                     />
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@AssociationPilon"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -331,7 +331,7 @@ function ContactPage() {
                     />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/association-pilon"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -368,7 +368,7 @@ function ContactPage() {
             >
               <iframe
                 title="Localisation Centre LGBT"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3283281483864!2d55.45265437593259!3d-20.890691168051603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21827f87a3875555%3A0xc3f5b722d5f2f534!2s11%20All.%20des%20Jaspes%2C%20Saint-Denis%2097400%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.4774280217816!2d55.44669587601081!3d-20.89310316902233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21827f5264e33deb%3A0xbf305a8600bbfffe!2sCentre%20LGBTQIA%2B%20de%20l&#39;%20Oc%C3%A9an%20Indien!5e0!3m2!1sfr!2sfr!4v1775759862901!5m2!1sfr!2sfr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

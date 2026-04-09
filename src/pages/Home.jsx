@@ -204,13 +204,13 @@ export default function Home({ helmet }) {
           {actions
             .filter((action) => action.frequence === "régulier")
             .map((action) => (
-              <div key={action.id} className="regular_card">
-                <img src={action.image} alt={action.titre} />
-                <h4>{action.titre}</h4>
-                <Link to={action.link} className="button_style">
+              <Link to="/actions">
+                <div key={action.id} className="regular_card">
+                  <img src={action.image} alt={action.titre} />
+                  <h4>{action.titre}</h4>
                   Découvrir nos actions
-                </Link>
-              </div>
+                </div>{" "}
+              </Link>
             ))}
         </div>
       </section>

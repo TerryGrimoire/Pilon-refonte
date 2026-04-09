@@ -290,7 +290,7 @@ export default function Boutique() {
                     COMMANDER SUR HELLOASSO
                   </a>
                   <Link
-                    to="/association"
+                    to="/contact"
                     className="button_style other"
                     style={{
                       textAlign: "center",
@@ -299,7 +299,7 @@ export default function Boutique() {
                       color: "black",
                     }}
                   >
-                    VOIR LE POINT DE VENTE
+                    Nous contacter
                   </Link>
                 </div>
               </div>

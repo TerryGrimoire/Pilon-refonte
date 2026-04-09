@@ -233,21 +233,23 @@ function BlogPage() {
         <h2 style={{ fontFamily: "var(--font-0)", fontSize: "32px" }}>
           VOUS AVEZ UNE HISTOIRE À RACONTER ?
         </h2>
-        <button
-          type="button"
-          style={{
-            backgroundColor: "#191919",
-            color: "#FFF",
-            padding: "15px 30px",
-            borderRadius: "4px",
-            border: "none",
-            fontWeight: "800",
-            cursor: "pointer",
-            marginTop: "20px",
-          }}
-        >
-          DEVENIR CONTRIBUTEUR
-        </button>
+        <Link to="/Rejoindre">
+          <button
+            type="button"
+            style={{
+              backgroundColor: "#191919",
+              color: "#FFF",
+              padding: "15px 30px",
+              borderRadius: "4px",
+              border: "none",
+              fontWeight: "800",
+              cursor: "pointer",
+              marginTop: "20px",
+            }}
+          >
+            DEVENIR CONTRIBUTEUR
+          </button>
+        </Link>
       </section>
     </div>
   );
