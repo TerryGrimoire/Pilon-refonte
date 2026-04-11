@@ -125,10 +125,22 @@ export default function Home({ helmet }) {
           <article>
             <h3>Qui sommes-nous ?</h3>
             <p>
-              Nous sommes un espace de vie et de solidarité où l’identité LGBT+
-              s’épanouit au cœur de la créolité. Notre mission est de briser
-              l’isolement et le rejet en plaçant la famille au centre de nos
-              actions.
+              Pilon{" "}
+              <strong>
+                lutte contre le rejet familial et sociétal des LGBT à la Réunion
+              </strong>
+              . Nous proposons un accompagnement complet tournant autour de 5
+              axes : la santé mentale, la santé physique, la santé financière,
+              la santé sexuelle et la santé sociale.
+            </p>
+            <p>
+              Ces actions s'appuient sur la culture créole et un lien
+              intergénérationnel fort grâce à notre{" "}
+              <Link to="/Mamies">Club des Mamies</Link> qui transmet les
+              savoir-faire lontan. Véritable piliers pour les jeunes rejetés,
+              ces mamies sortent elles aussi de leur solitude. Chez Pilon, nous
+              recréons ainsi une famille de cœur pour briser les barrières de
+              l'exclusion.
             </p>
             <Link to="/association" className="button_style">
               Découvrir l'association

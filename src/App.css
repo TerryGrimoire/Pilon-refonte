@@ -1090,6 +1090,8 @@ span {
   position: fixed;
   width: 100%;
   z-index: 1000;
+
+  
 }
 
 .desktop_nav {
@@ -1100,7 +1102,7 @@ span {
 
 /* --- Menu Burger (Caché sur ordinateur) --- */
 .burger_icon {
-  display: none;
+  display: none !important;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -1132,9 +1134,11 @@ span {
 /* --- RESPONSIVE : Le mode Mobile --- */
 @media (max-width: 768px) {
   .burger_icon {
-    display: flex; /* On affiche l'icône burger */
+    display: flex !important; /* On affiche l'icône burger */
   }
-
+.desktop {
+    display: none !important; /* On cache le menu classique */
+}
   .nav_links {
     position: fixed;
     top: 0;
@@ -1142,7 +1146,8 @@ span {
     height: 100vh;
     width: 100%;
     background-color: black;
-    flex-direction: column;
+    display: flex;
+    flex-direction: column !important;
     justify-content: center;
     align-items: center;
     transition: right 0.4s ease;
@@ -1157,4 +1162,50 @@ span {
   .burger_icon.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .burger_icon.open span:nth-child(2) { opacity: 0; }
   .burger_icon.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+}
+
+/* --- RESPONSIVE MOBILE (à mettre dans tes Media Queries) --- */
+@media (max-width: 1024px) {
+  
+  /* 1. Le conteneur global du menu (le fond noir) */
+  .nav_links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Caché */
+    height: 100vh;
+    width: 100%;
+    background-color: #000000; /* Le fond noir que l'on voit */
+    
+    /* LA CORRECTION MAGIQUE ICI */
+    display: flex;
+    flex-direction: column; /* Force l'alignement vertical */
+    justify-content: center; /* Centre les liens au milieu de l'écran (hauteur) */
+    align-items: center; /* Centre les liens au milieu de l'écran (largeur) */
+    
+    transition: 0.4s ease;
+    z-index: 1000;
+  }
+
+  .nav_links.active {
+    right: 0; /* Affiche le menu */
+  }
+
+  /* 2. Le sous-conteneur des liens (si tu en as un) */
+  .links_container {
+    display: flex;
+    flex-direction: column; /* Force aussi l'alignement vertical ici */
+    align-items: center;
+    gap: 30px; /* Espace vertical entre les mots (Agenda, Boutique, etc.) */
+    margin-bottom: 50px; /* Espace avant tes réseaux sociaux en bas */
+  }
+
+  /* 3. Style des liens eux-mêmes */
+  .nav_links a {
+    color: #FFFFFF;
+    font-size: 1.8rem; /* Plus gros pour que ce soit facile à cliquer avec le pouce */
+    font-family: var(--font-0); /* Ta police institutionnelle */
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap; /* Empêche les mots de se couper s'ils sont longs */
+  }
 }

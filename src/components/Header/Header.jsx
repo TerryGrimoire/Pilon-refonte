@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-// Importe tes icônes sociales ici comme tu le faisais
+import facebook from "../../assets/facebook.png";
+import instagram from "../../assets/instagram.png";
+import youtube from "../../assets/youtube.png";
+import linkedin from "../../assets/linkedin.png";
 
 function Burger() {
-  // État pour savoir si le menu est ouvert ou fermé
   const [isOpen, setIsOpen] = useState(false);
 
-  // Fonction pour fermer le menu quand on clique sur un lien
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -15,12 +16,12 @@ function Burger() {
   return (
     <header className="header">
       <nav className="desktop_nav">
-        {/* LOGO toujours visible */}
-        <Link to="/" className="logo_link">
+        {/* LOGO */}
+        <Link to="/" className="logo_link" onClick={() => setIsOpen(false)}>
           <img src={logo} alt="logo Pilon" />
         </Link>
 
-        {/* BOUTON BURGER (Visible uniquement sur mobile via CSS) */}
+        {/* BOUTON BURGER (Mobile uniquement) */}
         <div
           className={`burger_icon ${isOpen ? "open" : ""}`}
           onClick={toggleMenu}
@@ -30,34 +31,66 @@ function Burger() {
           <span />
         </div>
 
-        {/* LIENS DE NAVIGATION */}
-        <div className={`nav_links ${isOpen ? "active" : ""}`}>
-          <Link to="/association" onClick={toggleMenu}>
-            L'association
-          </Link>
-          <Link to="/Centre" onClick={toggleMenu}>
-            Le Centre LGBT
-          </Link>
-          <Link to="/Actions" onClick={toggleMenu}>
-            Nos actions
-          </Link>
-          <Link to="/Agenda" onClick={toggleMenu}>
-            Agenda
-          </Link>
-          <Link to="/Boutique" onClick={toggleMenu}>
-            Boutique
-          </Link>
-          <Link to="/Rejoindre" onClick={toggleMenu}>
-            Nous rejoindre
-          </Link>
-          <Link to="/FAQ" onClick={toggleMenu}>
-            FAQ
-          </Link>
-          <Link to="/Contact" onClick={toggleMenu}>
-            Contact
-          </Link>
+        {/* MENU DE NAVIGATION */}
+        <div className={`nav_links ${isOpen ? "active" : "desktop"}`}>
+          <div className="links_container">
+            <Link to="/association" onClick={toggleMenu}>
+              L'association
+            </Link>
+            <Link to="/Centre" onClick={toggleMenu}>
+              Le Centre LGBT
+            </Link>
+            <Link to="/Actions" onClick={toggleMenu}>
+              Nos actions
+            </Link>
+            <Link to="/Agenda" onClick={toggleMenu}>
+              Agenda
+            </Link>
+            <Link to="/Boutique" onClick={toggleMenu}>
+              Boutique
+            </Link>
+            <Link to="/Rejoindre" onClick={toggleMenu}>
+              Nous rejoindre
+            </Link>
+            <Link to="/FAQ" onClick={toggleMenu}>
+              FAQ
+            </Link>
+            <Link to="/Contact" onClick={toggleMenu}>
+              Contact
+            </Link>
+          </div>
 
-          {/* Optionnel : tu peux remettre les réseaux sociaux en bas du menu mobile */}
+          {/* RÉSEAUX SOCIAUX (S'adaptent selon l'écran) */}
+        </div>
+        <div className="social_media desktop">
+          <a
+            href="https://www.facebook.com/associationpilon"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={facebook} alt="Facebook" />
+          </a>
+          <a
+            href="https://www.instagram.com/pilon_reunion/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={instagram} alt="Instagram" />
+          </a>
+          <a
+            href="https://www.youtube.com/@AssociationPilon"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={youtube} alt="YouTube" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/association-pilon"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={linkedin} alt="LinkedIn" />
+          </a>
         </div>
       </nav>
     </header>

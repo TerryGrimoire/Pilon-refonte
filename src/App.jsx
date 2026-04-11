@@ -15,6 +15,7 @@ import Rejoindre from "./pages/Rejoindre";
 import Presse from "./pages/Presse";
 import Blog from "./pages/Blog";
 import ArticleBlog from "./pages/ArticleBlog";
+import ClubDesMamies from "./pages/Mamies";
 import ScrollToTop from "./components/ScrollToTop"; // Importe le composant
 import "./App.css";
 
@@ -32,6 +33,7 @@ function App() {
       <Header helmet={helmet} />
       <Routes>
         <Route path="/" element={<Home helmet={helmet} />} />
+        <Route path="/Mamies" element={<ClubDesMamies helmet={helmet} />} />
         <Route path="/Blog" element={<Blog helmet={helmet} />} />
         <Route path="/Blog/:id" element={<ArticleBlog helmet={helmet} />} />
         <Route path="/Presse" element={<Presse helmet={helmet} />} />
