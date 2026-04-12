@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Users, Heart, Target, Sparkles } from "lucide-react";
 import histoire from "../assets/histoire.jpeg";
-import centre from "../assets/centreLGBT.jpg";
+import centre from "../assets/lecentre.jpg";
 import pilon from "../assets/out.jpg";
 import myriam from "../assets/myriam.jfif";
 import amandine from "../assets/amandine.jpg";
@@ -263,10 +263,16 @@ function PageAssociationPilon() {
           <div style={styles.splitText}>
             <h2 style={styles.h2}>NOTRE HISTOIRE</h2>
             <p style={styles.p}>
-              L'association Pilon est née au lendemain de la toute première marche des visibilités de St Denis en 2021. Elle a débuté par un groupe d'amis qui voulait se retrouver et faire de la danse en talons.
+              L'association Pilon est née au lendemain de la toute première
+              marche des visibilités de St Denis en 2021. Elle a débuté par un
+              groupe d'amis qui voulait se retrouver et faire de la danse en
+              talons.
             </p>
             <p style={styles.p}>
-              La toute première action de Pilon est un pique-nique arc-en-ciel dont l'idée vient de la maman du fondateur, qui lui propose de faire un événement pour les familles. C'est comme ça qu'est né le pique-nique arc-en-ciel.
+              La toute première action de Pilon est un pique-nique arc-en-ciel
+              dont l'idée vient de la maman du fondateur, qui lui propose de
+              faire un événement pour les familles. C'est comme ça qu'est né le
+              pique-nique arc-en-ciel.
             </p>
           </div>
         </div>
@@ -291,11 +297,13 @@ function PageAssociationPilon() {
             <h2 style={styles.h2}>CENTRE LGBT NORD</h2>
             <p style={styles.p}>
               Pilon est la structure qui porte le{" "}
-              <strong>Centre LGBT Nord de La Réunion</strong>. Copiloté par 4 associations, Requeer, Kwir Mouvman, Timizé et Pilon, nous y assurons
-              des missions de service public : permanences psychologiques,
-              assistance sociale et santé sexuelle.
+              <strong>Centre LGBT Nord de La Réunion</strong>. Copiloté par 4
+              associations, Requeer, Kwir Mouvman, Timizé et Pilon, nous y
+              assurons des missions de service public : permanences
+              psychologiques, assistance sociale et santé sexuelle.
             </p>
-            <Link to="/centre"
+            <Link
+              to="/centre"
               style={{
                 padding: "20px",
                 borderLeft: "4px solid rgb(190, 3, 34)",
@@ -305,7 +313,7 @@ function PageAssociationPilon() {
                 fontWeight: "700",
               }}
             >
-              UN LIEU UNIQUE D'ACCUEIL ET DE DROITS.
+              Découvrir le centre lgbt nord{" "}
             </Link>
           </div>
         </div>
@@ -328,10 +336,19 @@ function PageAssociationPilon() {
               <span style={{ color: "rgb(190, 3, 34)" }}>pilon</span> ?
             </h2>
             <p style={styles.p}>
-              Deux raisons nous ont poussé à choisir le nom Pilon. La première est que notre association souhaite valoriser la culture créole et l'héritage ancestrales Réunionnais. Or, le Pilon est traditionnellement offert aux jeunes mariés lorsqu'ils fondent un foyer. Ce qui en fait un instrument traditionnel que tous les Réunionnais possèdent. 
+              Deux raisons nous ont poussé à choisir le nom Pilon. La première
+              est que notre association souhaite valoriser la culture créole et
+              l'héritage ancestrales Réunionnais. Or, le Pilon est
+              traditionnellement offert aux jeunes mariés lorsqu'ils fondent un
+              foyer. Ce qui en fait un instrument traditionnel que tous les
+              Réunionnais possèdent.
             </p>
             <p style={styles.p}>
-            De plus, en créole Mauricien et Seychellois, Pilon est une insulte pour désigner les homosexuels. Nous avons voulu nous réapproprier cette insulte par solidarité avec les autres peuples de l'Océan Indien, pour leur montrer que tant qu'on sera fiers d'être Pilon, aucune insulte ne peut nous atteindre. 
+              De plus, en créole Mauricien et Seychellois, Pilon est une insulte
+              pour désigner les homosexuels. Nous avons voulu nous réapproprier
+              cette insulte par solidarité avec les autres peuples de l'Océan
+              Indien, pour leur montrer que tant qu'on sera fiers d'être Pilon,
+              aucune insulte ne peut nous atteindre.
             </p>
           </div>
         </div>

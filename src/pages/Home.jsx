@@ -1,5 +1,6 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useEmblaCarousel from "embla-carousel-react";
@@ -10,7 +11,6 @@ import Faq from "../components/Faq";
 import chiffres from "../data/chiffres";
 import missions from "../data/missions";
 import actions from "../data/data";
-import actualite from "../data/actualite";
 import centreLGBT from "../data/centreLGBT";
 import approche from "../data/approche";
 
@@ -18,9 +18,11 @@ import video from "../assets/video.mp4";
 import presentation from "../assets/presentation.jpg";
 import presentation2 from "../assets/presentation2.jpg";
 import presentation3 from "../assets/presentation3.jpg";
-import presentation4 from "../assets/presentation4.jfif";
 import presentation5 from "../assets/presentation5.jpg";
 import presentation6 from "../assets/presentation6.jpg";
+import presentation8 from "../assets/presentation8.jpg";
+import presentation9 from "../assets/presentation9.jpg";
+import presentation7 from "../assets/hero2.jpg";
 import facebook from "../assets/facebook2.png";
 import instagram from "../assets/instagram2.png";
 import youtube from "../assets/youtube2.png";
@@ -65,20 +67,10 @@ export default function Home({ helmet }) {
     }
   }, []);
 
-  // Hook pour le carrousel de présentation existant
-  const [emblaRef] = useEmblaCarousel(
-    { loop: true, align: "start", containScroll: "trimSnaps" },
-    [Autoplay()]
-  );
-
   // Hook pour le nouveau carrousel Hero (Mobile)
   const [emblaHeroRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 4000 }),
   ]);
-
-  const currentYear = new Date().getFullYear();
-  const years = ["2024", "2025", "2026"];
-  const [dateSelected, setDateSelected] = useState(currentYear.toString());
 
   return (
     <main className="flex-col">
@@ -112,10 +104,10 @@ export default function Home({ helmet }) {
         >
           <div className="embla__container" style={{ height: "100%" }}>
             {[
-              presentation,
+              presentation7,
               presentation2,
               presentation3,
-              presentation4,
+              presentation8,
               presentation5,
               presentation6,
             ].map((img, index) => (
@@ -192,10 +184,10 @@ export default function Home({ helmet }) {
           ))}
         </div>
         <div className="home_approche_images">
-          <img src={presentation} alt="" className="img-large" />
-          <img src={presentation4} alt="" />
+          <img src={presentation7} alt="" className="img-large" />
+          <img src={presentation8} alt="" />
           <img src={presentation2} alt="" />
-          <img src={presentation3} alt="" />
+          <img src={presentation9} alt="" />
           <img src={presentation5} alt="" />
           <img src={presentation6} alt="" />
         </div>

@@ -1,4 +1,4 @@
-import centre from "../assets/centreLGBT.jpg";
+import centre from "../assets/lecentre.jpg";
 import psy from "../assets/psy.jpg";
 import depistage from "../assets/depistage.jpg";
 import formation from "../assets/formation.jpg";
@@ -6,9 +6,9 @@ import formation from "../assets/formation.jpg";
 const centreLGBT = [
   {
     id: 1,
-    titre: "Le centre LGBT de La Réunion",
+    titre: "Les centres LGBT de La Réunion",
     description:
-      "Le centre LGBT de La Réunion est une association qui a pour mission de promouvoir les droits et le bien-être des personnes LGBT. Il est porté par l'association Pilon et co-piloté par un total de 4 associations : Requeer, Kwir Mouvman, Timizé et Pilon.",
+      "A La Réunion, il existe deux centres LGBT : celui du Nord, porté par l'association Pilon et celui du sud porté par Le Planning Familial. Chaque centre LGBT réunit plusieurs associations qui gouvernent ensemble. Dans le Nord, les associations sont Pilon, Timizé, Requeer et Kwir Mouvman.",
     image: centre,
     lien: "/centre",
   },

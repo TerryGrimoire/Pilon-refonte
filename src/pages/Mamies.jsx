@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
   Heart,
   MessageCircle,
-  Star,
   GraduationCap,
   Quote,
   ChevronLeft,
@@ -28,7 +27,7 @@ import maloya03 from "../assets/maloya3.jpg";
 import cuisine1 from "../assets/cuisine1.jpg";
 import cuisine2 from "../assets/cuisine2.jfif";
 import cuisine3 from "../assets/cuisine3.mp4";
-import cuisine5 from "../assets/cuisine5.jfif"; 
+import cuisine5 from "../assets/cuisine5.jfif";
 
 // Composant interne pour les carrousels thématiques
 function ThemeCarousel({ items, styles, title }) {
@@ -55,12 +54,14 @@ function ThemeCarousel({ items, styles, title }) {
         {items.length > 1 && (
           <>
             <button
+              type="button"
               onClick={prevSlide}
               style={{ ...styles.navButton, left: "15px" }}
             >
               <ChevronLeft size={24} />
             </button>
             <button
+              type="button"
               onClick={nextSlide}
               style={{ ...styles.navButton, right: "15px" }}
             >
@@ -131,21 +132,24 @@ function ClubDesMamies() {
       role: "Référente Ateliers Couture",
       image: jocelyne,
       desc: "Une forme 'gayar' qui rayonne. Entre jardinage, maloya chanté et danse séga, elle est la gardienne des traditions. Elle ne maîtrise pas le lexique militant, mais elle possède une expertise du cœur : elle défend tout le monde contre le rejet.",
-      anecdote: "Grâce à Pilon, elle a enfin vu une éruption au Volcan.",
+      anecdote:
+        "Lorsqu'elle en a eu besoin, les jeunes LGBT se sont mobilisés pour l'aider à déménager.",
     },
     {
       nom: "Madame Marie Andrée",
       role: "Référente Camping & Rando",
       image: marieAndree,
       desc: "Autrefois tournée vers le regard des autres, elle vit aujourd'hui pour son propre bonheur. De la découverte de la machine à coudre à l'organisation d'un camping Cowboy, elle prouve qu'il n'y a pas d'âge pour s'émanciper.",
-      anecdote: "Elle a créé des liens indéfectibles avec les jeunes.",
+      anecdote:
+        "Elle a découvert la couture grâce à l'association et envisage de s'acheter une machine.",
     },
     {
       nom: "Madame Berthe",
       role: "Référente Atelier Cuisine",
       image: berthe,
       desc: "Discrète mais indispensable, elle veille sur le local et sur les jeunes avec une attention maternelle. Entre les soirées jeux et la cuisine, elle s'initie même au rouleur, montrant que la curiosité reste son moteur principal.",
-      anecdote: "Elle est le pont entre l'entretien du lieu et le lien social.",
+      anecdote:
+        "Grâce à Pilon, elle a vu pour la première fois de sa vie une éruption volcanique.",
     },
   ];
 
@@ -266,12 +270,12 @@ function ClubDesMamies() {
                   color: "#333",
                 }}
               >
-                Pour beaucoup de jeunes LGBT+ rejetés par leur foyer, nos mamies
-                incarnent une <strong>"famille de substitution"</strong>. Mais
-                chez Pilon, l'amour est un échange vital. Nos mamies ne se
-                contentent pas d'écouter ; elles se forment. Elles sont
-                aujourd'hui <strong>secouristes en santé mentale (PSSM)</strong>
-                , capables de poser des mots là où le dialogue a été rompu.
+                À La Réunion, la famille est bien plus qu'un simple cercle :
+                c'est notre socle, notre monde, l'espace où l'on se construit.
+                Le rejet familial des LGBT les laissent souvent sans foyer, sans
+                repère, ni protection. Pilon a toujours porté une dimension
+                familiale dans son ADN. C'est pourquoi, intégrer des mamies au
+                cœur de nos actions nous est apparu comme une évidence.
               </p>
               <p
                 style={{
@@ -282,14 +286,12 @@ function ClubDesMamies() {
                   marginTop: "20px",
                 }}
               >
-                En retour, les jeunes deviennent leurs piliers : quand l'une
-                d'elles doit déménager, quand il faut dompter WhatsApp ou
-                préparer une présentation PowerPoint pour l'Université, la
-                jeunesse est là. C'est une alliance contre la solitude : grâce à
-                l'association, certaines ont vu le{" "}
-                <strong>Volcan en éruption</strong> pour la première fois,
-                tandis que des jeunes découvraient la vibration du{" "}
-                <strong>rouleur</strong> sous leurs mains.
+                C’est une rencontre entre deux mondes qui avaient besoin l’un de
+                l’autre. D’un côté, des jeunes en quête d’une famille de
+                substitution ; de l’autre, des aînées qui souffrent parfois de
+                solitude, dont les enfants n'ont pas toujours le temps de rendre
+                visite, et qui ressentent le besoin vital de rester actives et
+                utiles.
               </p>
             </div>
             <div
@@ -395,7 +397,6 @@ function ClubDesMamies() {
                   url: maloya03,
                   caption: "An Nah sur un rouler",
                 },
-               
               ]}
               styles={styles}
             />
@@ -407,17 +408,18 @@ function ClubDesMamies() {
                   url: volcan2,
                   caption: "Photo de groupe au volcan",
                 },
-                 {
+                {
                   type: "image",
                   url: volcan4,
                   caption: "Marche jusqu'au volcan",
                 },
-                 {
+                {
                   type: "image",
                   url: volcan3,
-                  caption: "les trois mamies devant la route coupée par la lave",
+                  caption:
+                    "les trois mamies devant la route coupée par la lave",
                 },
-                 {
+                {
                   type: "video",
                   url: volcan1,
                   caption: "chantons sous la pluie",
@@ -491,8 +493,8 @@ function ClubDesMamies() {
               justifyContent: "space-between",
             }}
           >
-            {mamies.map((m, i) => (
-              <div key={i} style={styles.mamieCard}>
+            {mamies.map((m) => (
+              <div style={styles.mamieCard}>
                 <div style={{ height: "350px", overflow: "hidden" }}>
                   <img
                     src={m.image}
@@ -582,7 +584,7 @@ function ClubDesMamies() {
                   color: "rgb(190, 3, 34)",
                 }}
               >
-                LO KÉR KRÉOL
+                Une échange
               </h3>
               <p
                 style={{
@@ -592,13 +594,14 @@ function ClubDesMamies() {
                   opacity: 0.9,
                 }}
               >
-                Le Club des Mamies est notre pont vers l'identité réunionnaise.
-                Elles nous redonnent accès à nos traditions et à une culture
-                créole que l'on pensait parfois perdue ou hostile. À travers la
-                transmission culinaire au feu de bois, le partage d'expressions
-                "lontan" et leur savoir, elles ancrent nos parcours LGBT+ dans
-                la terre de La Réunion. Elles offrent cette tendresse
-                inconditionnelle là où le rejet familial a laissé des vides.
+                Piliers du Centre, nos mamies soignent le jardin mais aussi les
+                liens : formées au secourisme en santé mentale (PSSM), elles
+                veillent sur les plus fragiles et transmettent notre culture
+                créole aux jeunes. L'échange est réciproque : elles sortent de
+                l'isolement, domptent les technologies et partagent des émotions
+                fortes, de l'éruption du Volcan au rythme du roulèr avec Maloya
+                Kwir. Chez Pilon, cette famille choisie devient un rempart quand
+                la famille de sang fait défaut.
               </p>
             </div>
             <div
@@ -617,8 +620,8 @@ function ClubDesMamies() {
                   <MessageCircle color="rgb(190, 3, 34)" />
                 </div>
                 <div>
-                  <strong>Vocabulaire :</strong> Le créole comme langue du
-                  réconfort et de l'appartenance.
+                  <strong>Gardiennes :</strong> Elles prennent soin du Centre
+                  LGBT et des jeunes avec amour.
                 </div>
               </div>
               <div

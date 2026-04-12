@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import actionsData from "../data/actions";
+import actionsData from "../data/data";
 
 // --- STYLES DÉFINIS AVANT LA FONCTION (Supprime les erreurs VS Code) ---
 const containerStyle = {
@@ -109,11 +109,14 @@ function HeroCarousel() {
       >
         {actionsPhares.map((action) => (
           <SwiperSlide key={action.id}>
-            <Link to={action.link} style={{ textDecoration: "none" }}>
+            <Link
+              to={`/actions/${action.id}`}
+              style={{ textDecoration: "none" }}
+            >
               <div style={cardStyle}>
                 {/* L'image utilise action.image car on l'a défini comme ça dans la data */}
                 <img
-                  src={action.image}
+                  src={action.img}
                   alt={action.titre}
                   style={imageStyle}
                   onError={(e) => {

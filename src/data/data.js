@@ -2,7 +2,6 @@ import tour from "../assets/presentation5.jpg";
 import piknik from "../assets/presentation.jpg";
 import sante from "../assets/presentation3.jpg";
 import ateliers from "../assets/presentation4.jfif";
-import harcelement from "../assets/presentation6.jpg";
 import famille from "../assets/presentation2.jpg";
 import maloya from "../assets/maloya2.jpg";
 import cuisine from "../assets/cuisine.jpg";
@@ -12,6 +11,7 @@ import peche from "../assets/peche.jpg";
 import rando from "../assets/rando.jpg";
 import camping from "../assets/camping.jpg";
 import volley from "../assets/volley.jpg";
+import voyagemaurice from "../assets/voyagemaurice.jpg";
 
 const actionsData = [
   {
@@ -21,36 +21,66 @@ const actionsData = [
     titre: "Pilon vers l'Emploi",
     freq: "Sessions trimestrielles",
     frequence: "tous les 3 mois",
-    frequence_detail: "4 sessions par an",
-    desc: "Programme d'accompagnement intensif pour les personnes LGBTQIA+ victimes de discriminations à l'embauche.",
+    frequence_detail: "2 sessions par an",
+    desc: "Programme d'accompagnement pour les personnes LGBTQIA+ ayant du mal à retrouver le chemin de l'emploi.",
     contexte:
-      "Le taux de chômage et la précarité chez les personnes trans et non-binaires à La Réunion restent largement supérieurs à la moyenne nationale.",
+      "À La Réunion, le rejet familial constitue souvent le premier pas vers la précarité pour de nombreux jeunes LGBT+, entraînant parfois l'arrêt des études et des difficultés d'accès au logement.",
     objectifs: [
-      "Rédaction de CV inclusifs",
-      "Coaching en confiance en soi",
-      "Mise en relation avec un réseau d'entreprises safe",
+      "Retrouver le chemin de l'emploi",
+      "Reprendre confiance en soi",
+      "Développer son réseau ",
+      "S'émanciper financièrement",
     ],
     infosPratiques: {
       prix: "Gratuit sur inscription",
-      public: "Demandeurs d'emploi LGBTQIA+",
+      public: "Sans emploi LGBTQIA+",
       modalite: "Entretien préalable",
-      lieu: "Locaux de l'association / Distanciel",
+      lieu: "Centre LGBT Nord Réunion",
     },
-    partenaires: ["France Travail", "Mission Locale", "Face Réunion"],
-    financeurs: ["FSE+", "Région Réunion", "DEETS"],
+    partenaires: ["France Travail", "Mission Locale"],
+    financeurs: ["Brasseries de Bourbon", "Ville de Saint-Denis"],
     img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
+    documents: [
+      {
+        nom: "Dossier présentation Pilon vers l'emploi",
+        url: "https://drive.google.com/file/d/1chnayfAs1X6ICutBspJfOqr0i9qXjXaN/view?usp=sharinghttps://drive.google.com/file/d/1chnayfAs1X6ICutBspJfOqr0i9qXjXaN/view?usp=sharing",
+      },
+    ],
     galerieParAnnee: [
       {
         annee: "2026",
         photos: [
-          "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
+          "https://i.postimg.cc/QMTbxP73/Whats-App-Image-2026-04-07-at-13-32-59.jpg",
+          "https://i.postimg.cc/TPD9YSbR/Whats-App-Image-2026-04-07-at-13-33-01.jpg",
+          "https://i.postimg.cc/d0yBtXCt/Whats-App-Image-2026-04-07-at-13-33-03.jpg",
+          "https://i.postimg.cc/fb9KTFdz/Whats-App-Image-2026-04-07-at-13-33-04.jpg",
+          "https://i.postimg.cc/yNZPY5R3/Whats-App-Image-2026-04-07-at-13-33-05.jpg",
+          "https://i.postimg.cc/jj7Xd9ff/Whats-App-Image-2026-04-07-at-13-33-07.jpg",
+          "https://i.postimg.cc/SsbGXrLX/Whats-App-Image-2026-04-07-at-13-33-08.jpg",
+          "https://i.postimg.cc/Kzh5KN7L/Whats-App-Image-2026-04-07-at-13-33-09.jpg",
+          "https://i.postimg.cc/G2njBQPP/Whats-App-Image-2026-04-07-at-13-33-10.jpg",
+          "https://i.postimg.cc/rm29dJG1/Whats-App-Image-2026-04-07-at-13-33-11.jpg",
+          "https://i.postimg.cc/SsbGXrLc/Whats-App-Image-2026-04-07-at-13-33-27.jpg",
+          "https://i.postimg.cc/qRHGtLcG/Whats-App-Image-2026-04-07-at-13-33-28.jpg",
+          "https://i.postimg.cc/Y9Bx43NR/Whats-App-Image-2026-04-07-at-13-33-29.jpg",
+          "https://i.postimg.cc/3RQZyBjn/Whats-App-Image-2026-04-07-at-13-33-30.jpg",
+          "https://i.postimg.cc/LXk3j1vD/Whats-App-Image-2026-04-07-at-13-33-31.jpg",
+          "https://i.postimg.cc/ZRPx6djf/Whats-App-Image-2026-04-07-at-13-33-32.jpg",
+          "https://i.postimg.cc/bJ091tLW/Whats-App-Image-2026-04-07-at-13-33-33.jpg",
+          "https://i.postimg.cc/ydhy0ZnM/Whats-App-Image-2026-04-07-at-13-33-34.jpg",
+          "https://i.postimg.cc/qRcx23jJ/Whats-App-Image-2026-04-07-at-13-33-36.jpg",
+          "https://i.postimg.cc/Kz7DtMJc/Whats-App-Image-2026-04-07-at-13-33-37.jpg",
+          "https://i.postimg.cc/Fz9gpHBv/Whats-App-Image-2026-04-07-at-13-33-38.jpg",
+          "https://i.postimg.cc/4yJbPxSJ/Whats-App-Image-2026-04-07-at-13-33-39.jpg",
+          "https://i.postimg.cc/KjZrf8H4/Whats-App-Image-2026-04-07-at-13-33-40.jpg",
+          "https://i.postimg.cc/Wz2681HD/Whats-App-Image-2026-04-07-at-13-33-41.jpg",
+          "https://i.postimg.cc/VvYBgkVb/Whats-App-Image-2026-04-07-at-13-33-42.jpg",
         ],
       },
     ],
-    link: "/Actions/pilon-emploi",
     bilan2026: {
-      participants: 32,
-      donneeCle: "14 contrats signés (CDI/CDD)",
+      participants: 10,
+      donneeCle: "100% de satisfaction",
     },
   },
   {
@@ -87,7 +117,7 @@ const actionsData = [
       },
       { titre: "Le Pilon Festival voit plus grand", source: "JIR", url: "#" },
     ],
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3",
+    img: "https://i.postimg.cc/c1QbcKrn/outremer-2024-05-19-20240519-143330-720-6649d6e9044bf417635924.webp",
     galerieParAnnee: [
       {
         annee: "2025",
@@ -137,7 +167,7 @@ const actionsData = [
       },
       { titre: "Le Pilon Festival voit plus grand", source: "JIR", url: "#" },
     ],
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3",
+    img: "https://i.postimg.cc/5ycD2Lym/1920-2-1.jpg",
     galerieParAnnee: [
       {
         annee: "2025",
@@ -160,7 +190,7 @@ const actionsData = [
     titre: "Le tour de l'île arc-en-ciel",
     freq: "Annuel",
     frequence: "annuelle",
-    frequence_detail: "Itinérant sur 2 semaines",
+    frequence_detail: "Tous les ans en juin",
     desc: "Un convoi de sensibilisation qui parcourt les 24 communes de l'île pour rencontrer les habitants des zones isolées.",
     contexte:
       "Porter la visibilité au-delà des grandes agglomérations pour briser l'isolement des personnes rurales.",
@@ -171,14 +201,15 @@ const actionsData = [
     ],
     infosPratiques: {
       prix: "15€",
-      public: "Habitants des communes rurales",
-      lieu: "Place des mairies / Itinérant",
+      public: "Tout public",
+      lieu: "Toute l'ile",
     },
     img: tour,
-    financeurs: ["Département de La Réunion", "CAF"],
+    financeurs: ["Région Réunion", "DILCRAH"],
+    partenaires: ["Car Jaune", "Dada Burger", "Bouchon ChanFat"],
     link: "/Actions/tour-ile",
     bilan2026: {
-      participants: 500,
+      participants: 55,
       donneeCle: "24 communes visitées",
     },
   },
@@ -189,7 +220,7 @@ const actionsData = [
     titre: "Le Pique-nique arc-en-ciel",
     freq: "Annuel",
     frequence: "annuelle",
-    frequence_detail: "Chaque année en Octobre",
+    frequence_detail: "Chaque année en juin",
     desc: "Le plus grand rassemblement convivial en plein air pour la communauté et ses alliés, un moment de partage sans jugement.",
     contexte:
       "Besoin d'espaces de socialisation sécurisants (safe spaces) en dehors du cadre militant classique.",
@@ -198,16 +229,58 @@ const actionsData = [
       "Solidarité intergénérationnelle",
       "Visibilité douce",
     ],
+    galerieParAnnee: [
+      {
+        annee: "2023",
+        photos: [
+          "https://i.postimg.cc/0QBr2rL5/IMG20230611125259.jpg",
+          "https://i.imgur.com/QuQ0qMX.jpg",
+          "https://i.postimg.cc/GtTtBdCF/journal.png",
+          "https://i.postimg.cc/GhK8T8sF/352826376-764288358759668-6917677209120389197-n.jpg",
+          "https://i.postimg.cc/4ybK5n2T/352989295-764288588759645-4286836309473856465-n.jpg",
+          "https://i.postimg.cc/zX8HfS3D/353060080-764288538759650-3927160823093202684-n.jpg",
+          "https://i.postimg.cc/fLdSV8xy/353437369-764288505426320-8829126020897665589-n.jpg",
+          "https://i.postimg.cc/fRb3czx6/353442433-764288375426333-6965456651159025682-n.jpg",
+          "https://i.postimg.cc/WpMJjfNf/353762619-764288442092993-9114724271511838696-n.jpg",
+        ],
+      },
+      {
+        annee: "2024",
+        photos: [
+          "https://i.postimg.cc/FFx2r6vj/IMG-1328.jpg",
+          "https://i.postimg.cc/3J0rk7xs/IMG-1282.jpg",
+          "https://i.postimg.cc/ZYMKY04P/IMG-1292.jpg",
+          "https://i.postimg.cc/Qd5MysLQ/IMG-1298.jpg",
+          "https://i.postimg.cc/kgxnyc8w/IMG-1299.jpg",
+          "https://i.postimg.cc/k5sq0gTb/IMG-1301.jpg",
+          "https://i.postimg.cc/hjGccRY3/IMG-1309.jpg",
+          "https://i.postimg.cc/SKkm1Mf4/IMG-1315.jpg",
+          "https://i.postimg.cc/kgrJ8ZVB/IMG-1329.jpg",
+          "https://i.postimg.cc/NF5s7v7r/IMG-1336.jpg",
+        ],
+      },
+      {
+        annee: "2025",
+        photos: [
+          "https://i.postimg.cc/8zmFBg6R/514255080-1170225295149520-7978889456331063074-n-(1).jpg",
+          "https://i.postimg.cc/Z5SBd5C6/514258346-1170225385149511-5877825215748582716-n-(2).jpg",
+          "https://i.postimg.cc/fRf3jQ9Y/514276723-1170225161816200-358206670402669079-n-(1).jpg",
+          "https://i.postimg.cc/P5jpw5P6/515500331-1170225258482857-6843241768597429647-n-(1).jpg",
+        ],
+      },
+    ],
     infosPratiques: {
       prix: "Gratuit",
-      public: "Familles & Individus",
-      lieu: "Espaces naturels (L'Ermitage / Volcan)",
+      public: "Tout public",
+      lieu: "Change chaque année",
     },
+    financeurs: ["Pilon", "Les bénéficiaires"],
+    partenaires: ["Aucun"],
     img: piknik,
     link: "/Actions/pique-nique",
     bilan2026: {
-      participants: 300,
-      donneeCle: "Record de participation",
+      participants: 100,
+      donneeCle: "C'est un événement qui s'exporte à Maurice et à Nantes !",
     },
   },
   {
@@ -229,9 +302,9 @@ const actionsData = [
     infosPratiques: {
       prix: "Gratuit",
       public: "Familles & Individus",
-      lieu: "Espaces naturels (L'Ermitage / Volcan)",
+      lieu: "Change chaque année",
     },
-    img: piknik,
+    img: "https://i.postimg.cc/DyMRY9d9/pexels-mohamed9380-36630848.jpg",
     link: "/Actions/pique-nique",
     bilan2026: {
       participants: 300,
@@ -259,7 +332,7 @@ const actionsData = [
       public: "Militants & Professionnels",
       lieu: "Maurice / Réunion",
     },
-    img: sante,
+    img: voyagemaurice,
     financeurs: ["Commission de l'Océan Indien", "INTERREG"],
     link: "/Actions/voyage-maurice",
     bilan2026: {
@@ -288,7 +361,7 @@ const actionsData = [
       public: "Militants & Professionnels",
       lieu: "Maurice / Réunion",
     },
-    img: sante,
+    img: "https://i.postimg.cc/J4zWFcwn/pexels-thanhly-34176016.jpg",
     financeurs: ["Commission de l'Océan Indien", "INTERREG"],
     link: "/Actions/voyage-maurice",
     bilan2026: {
@@ -302,7 +375,7 @@ const actionsData = [
     categorie: "COOPÉRATION RÉGIONALE",
     titre: "FAG-Fihavanana Madagascar",
     freq: "Annuel",
-    frequence: "annuelle",
+    frequence: " ",
     frequence_detail: "Échange de 5 jours",
     desc: "Programme d'échange avec les associations mauriciennes pour partager les bonnes pratiques en santé communautaire.",
     contexte:
@@ -331,7 +404,7 @@ const actionsData = [
     categorie: "ÉDUCATION",
     titre: "La conférence des papas",
     freq: "Annuel",
-    frequence: "annuelle",
+    frequence: " ",
     frequence_detail: "Cycle de conférences (Université)",
     desc: "Conférences-débats destinées aux parents et proches de personnes LGBTQ+ pour faciliter le dialogue familial.",
     contexte:
@@ -360,7 +433,7 @@ const actionsData = [
     categorie: "ÉDUCATION",
     titre: "Sensibilisation auprès des jeunes",
     freq: "Annuel",
-    frequence: "annuelle",
+    frequence: " ",
     frequence_detail: "sur demande",
     desc: "Sur demande des associations ou des structures, nous faisons des sensibilisation auprès du public jeune. Nous pouvons aussi intervenir en milieu scolaire.",
     contexte:
@@ -386,8 +459,8 @@ const actionsData = [
   {
     id: "lutte-cyber",
     pilier: "Sensibilisation",
-    categorie: "VEILLE NUMÉRIQUE",
-    titre: "Lutte contre le cyberharcèlement",
+    categorie: "Lutte contre cyberharcèlement",
+    titre: "La brigade arc-en-ciel",
     freq: "Annuel",
     frequence: "annuelle",
     frequence_detail: "Campagne permanente",
@@ -399,7 +472,7 @@ const actionsData = [
       "Signalement Pharos",
       "Éducation numérique",
     ],
-    img: harcelement,
+    img: "https://i.postimg.cc/6Q5jWz0f/pexels-kadiremir-31148083.jpg",
     financeurs: ["Dilcrah"],
     link: "/Actions/lutte-cyber",
     bilan2026: {
@@ -413,7 +486,7 @@ const actionsData = [
     categorie: "ÉDUCATION",
     titre: "Sensibilisation en entreprise",
     freq: "Annuel",
-    frequence: "annuelle",
+    frequence: " ",
     frequence_detail: "sur demande",
     desc: "Conférences-débats destinées aux parents et proches de personnes LGBTQ+ pour faciliter le dialogue familial.",
     contexte:
