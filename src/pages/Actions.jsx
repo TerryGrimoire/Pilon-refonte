@@ -21,10 +21,14 @@ function NosActions() {
 
   const piliersConfig = {
     Tous: { titre: "Toutes nos actions" },
-    Sante: { titre: "Santé & Prévention" },
-    Social: { titre: "Inclusion & Insertion" },
-    Education: { titre: "Éducation & Jeunesse" },
-    Culture: { titre: "Culture & Rayonnement" },
+    Sante: { titre: "Santé" },
+    Social: { titre: "Accès aux droits" },
+    Visibilite: { titre: "Mois des fiertés" },
+    Culture: { titre: "Culture" },
+    Sport: { titre: "Sport et Loisirs" },
+    Sensibilisation: { titre: "Sensibilisation" },
+    Formations: { titre: "Formations" },
+    Voyages: { titre: "Voyages" },
   };
 
   const filteredActions =
@@ -44,7 +48,7 @@ function NosActions() {
         className="home_hero"
         style={{
           height: "60vh",
-          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop') center/cover`,
+          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero6.jpg') center/cover`,
         }}
       >
         <h1
@@ -73,6 +77,7 @@ function NosActions() {
         >
           {Object.keys(piliersConfig).map((key) => (
             <button
+              type="button"
               key={key}
               onClick={() => setFilter(key)}
               className="no_button"

@@ -29,7 +29,7 @@ function BlogPage() {
   return (
     <div style={{ backgroundColor: "#FFF", minHeight: "100vh" }}>
       <Helmet>
-        <title>Le Mag | Pilon</title>
+        <title>Le Blog | Pilon</title>
       </Helmet>
 
       {/* --- HERO --- */}
@@ -38,6 +38,8 @@ function BlogPage() {
           padding: "100px 20px 60px",
           textAlign: "center",
           backgroundColor: "#191919",
+           background:
+        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero13.jpg') center/cover",
           color: "#FFF",
         }}
       >
@@ -49,7 +51,7 @@ function BlogPage() {
             margin: 0,
           }}
         >
-          Le <span style={{ color: accentColor }}>Mag'</span> Pilon
+          Le <span style={{ color: accentColor }}>Blog</span> Pilon
         </h1>
         <p
           style={{

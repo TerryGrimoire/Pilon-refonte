@@ -1,9 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { ChevronDown, ArrowRight } from "lucide-react";
 
-import heroImage from "../assets/camping.jpg";
+import heroImage from "../assets/presentation6.jpg";
 
 // --- COMPOSANT FAQ ITEM (INDIVIDUEL) ---
 function FaqItem({ question, answer }) {
@@ -166,43 +167,9 @@ function Hero() {
             marginBottom: "50px",
           }}
         >
-          <button
-            type="button"
-            style={{
-              padding: "16px 32px",
-              backgroundColor: accentColor, // Rouge Pilon
-              color: "#FFFFFF",
-              border: "none",
-              borderRadius: "4px",
-              fontSize: "15px",
-              fontWeight: "800",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              fontFamily: "var(--font-3)",
-              textTransform: "uppercase",
-            }}
-          >
-            Poser une question <ArrowRight size={18} />
-          </button>
-          <button
-            type="button"
-            style={{
-              padding: "16px 32px",
-              backgroundColor: "transparent",
-              color: "#FFFFFF",
-              border: "2px solid #FFFFFF",
-              borderRadius: "4px",
-              fontSize: "15px",
-              fontWeight: "800",
-              cursor: "pointer",
-              fontFamily: "var(--font-3)",
-              textTransform: "uppercase",
-            }}
-          >
-            Nous contacter
-          </button>
+         
+ 
+         
         </div>
       </div>
 

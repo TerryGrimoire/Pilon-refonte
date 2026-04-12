@@ -49,7 +49,7 @@ function Agenda() {
         className="home_hero"
         style={{
           height: "60vh",
-          background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1506784919141-9355609345bc?q=80&w=2070&auto=format&fit=crop') center/cover`,
+          background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/assets/presse.jpg') top/cover`,
         }}
       >
         <h1
@@ -290,8 +290,8 @@ function Agenda() {
                         day: "numeric",
                         month: "long",
                       })
-                    : "Hebdomadaire"}{" "}
-                  à {selectedEvent.horaires}
+                    : selectedEvent.reccurence}{" "}
+                  {selectedEvent.horaires}
                 </p>
               </div>
 
@@ -375,7 +375,7 @@ function EventCard({ event, onClick, isPast }) {
                 day: "numeric",
                 month: "long",
               })
-            : "HEBDOMADAIRE"}
+            : event.reccurence}
         </p>
         <h4
           style={{

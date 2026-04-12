@@ -6,11 +6,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import HeroCarousel from "@components/Carousel";
 import Faq from "../components/Faq";
-import fleche from "../assets/fleche.png";
 
 import chiffres from "../data/chiffres";
 import missions from "../data/missions";
-import actions from "../data/actions";
+import actions from "../data/data";
 import actualite from "../data/actualite";
 import centreLGBT from "../data/centreLGBT";
 import approche from "../data/approche";
@@ -66,10 +65,16 @@ export default function Home({ helmet }) {
     }
   }, []);
 
+  // Hook pour le carrousel de présentation existant
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start", containScroll: "trimSnaps" },
     [Autoplay()]
   );
+
+  // Hook pour le nouveau carrousel Hero (Mobile)
+  const [emblaHeroRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000 }),
+  ]);
 
   const currentYear = new Date().getFullYear();
   const years = ["2024", "2025", "2026"];
@@ -83,10 +88,13 @@ export default function Home({ helmet }) {
         <meta name="description" content={helmet.description} />
       </Helmet>
 
-      {/* HERO (Déjà animé par le CSS de base généralement) */}
+      {/* HERO MODIFIÉ POUR MOBILE */}
       <section className="home_hero">
         <div className="veil" />
+
+        {/* Vidéo pour Desktop */}
         <video
+          className="desktop-only"
           ref={videoRef}
           src={video}
           autoPlay
@@ -95,52 +103,71 @@ export default function Home({ helmet }) {
           playsInline
           disablePictureInPicture
         />
+
+        {/* Carrousel pour Mobile */}
+        <div
+          className="embla mobile-only"
+          ref={emblaHeroRef}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <div className="embla__container" style={{ height: "100%" }}>
+            {[
+              presentation,
+              presentation2,
+              presentation3,
+              presentation4,
+              presentation5,
+              presentation6,
+            ].map((img, index) => (
+              <div
+                className="embla__slide"
+                key={`hero-${index}`}
+                style={{ flex: "0 0 100%", height: "100%" }}
+              >
+                <img
+                  src={img}
+                  alt="Illustration Pilon"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <h1>
           Ensemble luttons contre le rejet des personnes LGBT de La Réunion
         </h1>
-        <Link to="/">
-          <img src={fleche} alt="icone fleche" className="pulse-element" />
-        </Link>
       </section>
 
       <section className="home_presentation reveal">
         <div className="gradient-rainbow" />
         <div>
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container">
-              {[
-                presentation,
-                presentation2,
-                presentation3,
-                presentation4,
-                presentation5,
-                presentation6,
-              ].map((img, index) => (
-                <div className="embla__slide" key={index}>
-                  <img src={img} alt={`Présentation ${index + 1}`} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <article>
+          <img
+            src={presentation}
+            alt="lgbt pendant le tour de l'ile arc en ciel de l'association Pilon Réunion"
+          />
+          <article className="artocle">
             <h3>Qui sommes-nous ?</h3>
             <p>
               Pilon{" "}
               <strong>
-                lutte contre le rejet familial et sociétal des LGBT à la Réunion
+                lutte contre le rejet familial et sociétal des LGBT à la Réunion{" "}
               </strong>
-              . Nous proposons un accompagnement complet tournant autour de 5
-              axes : la santé mentale, la santé physique, la santé financière,
-              la santé sexuelle et la santé sociale.
-            </p>
+              avec un but clair : protéger les LGBT Réunionnais. Dans notre île,
+              la famille a une place primordiale dans la vie d'un individu, et
+              nous avons choisi de la placer au coeur de nos actions pour en
+              faire une arme contre l'exclusion.
+            </p>{" "}
             <p>
-              Ces actions s'appuient sur la culture créole et un lien
-              intergénérationnel fort grâce à notre{" "}
-              <Link to="/Mamies">Club des Mamies</Link> qui transmet les
-              savoir-faire lontan. Véritable piliers pour les jeunes rejetés,
-              ces mamies sortent elles aussi de leur solitude. Chez Pilon, nous
-              recréons ainsi une famille de cœur pour briser les barrières de
-              l'exclusion.
+              Persuadés que chaque papa, maman, pépé, mémé, tatie, tonton,
+              cousin, frère, soeur peut devenir un allié pour transformer le
+              rejet en acceptation. Nous voulons leur rappeler le rôle essentiel
+              qu'ils ont à jouer :{" "}
+              <strong>
+                celui d'un bouclier d'amour et de protection pour tous les
+                membres de la famille
+              </strong>
+              , sans exception.
             </p>
             <Link to="/association" className="button_style">
               Découvrir l'association
@@ -216,9 +243,9 @@ export default function Home({ helmet }) {
           {actions
             .filter((action) => action.frequence === "régulier")
             .map((action) => (
-              <Link to="/actions">
-                <div key={action.id} className="regular_card">
-                  <img src={action.image} alt={action.titre} />
+              <Link to={`/actions/${action.id}`} key={action.id}>
+                <div className="regular_card">
+                  <img src={action.img} alt={action.titre} />
                   <h4>{action.titre}</h4>
                   Découvrir nos actions
                 </div>{" "}
@@ -295,11 +322,8 @@ export default function Home({ helmet }) {
 
       <section className="home_centre reveal">
         <div className="gradient-rainbow" />
-        <h3>Pilon porte le Centre LGBT Nord</h3>
-        <p>
-          Depuis janvier 2026, Pilon est la nouvelle association qui porte le
-          Centre LGBT Nord de La Réunion.
-        </p>
+        <h3>Pilon c'est aussi</h3>
+
         <div>
           {centreLGBT.map((item) => (
             <div key={item.id} className="duo">
@@ -307,7 +331,7 @@ export default function Home({ helmet }) {
               <div>
                 <h4>{item.titre}</h4>
                 <p>{item.description}</p>
-                <Link to="/association" className="button_style other">
+                <Link to={item.lien} className="button_style other">
                   En savoir plus
                 </Link>
               </div>
@@ -321,7 +345,7 @@ export default function Home({ helmet }) {
         <div className="duo">
           <iframe
             title="carte"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.441086419714!2d55.47364431526044!3d-20.88243298609686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b8e7a9c8e7%3A0x6b8c8c8c8c8c8c8!2sCentre%20LGBT%20de%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.4774280217816!2d55.44669587601081!3d-20.89310316902233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21827f5264e33deb%3A0xbf305a8600bbfffe!2sCentre%20LGBTQIA%2B%20de%20l'%20Oc%C3%A9an%20Indien!5e0!3m2!1sfr!2sfr!4v1775950676521!5m2!1sfr!2sfr"
             width="600"
             height="450"
             style={{ border: 0 }}

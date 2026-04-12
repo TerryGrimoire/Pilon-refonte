@@ -49,7 +49,7 @@ function PageCentreLGBT() {
     hero: {
       height: "60vh",
       background:
-        "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2064') center/cover",
+        "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/assets/heroasso2.jpg') top/cover",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",

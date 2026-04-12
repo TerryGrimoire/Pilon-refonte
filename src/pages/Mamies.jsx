@@ -1,7 +1,112 @@
 /* eslint-disable no-param-reassign */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Heart, MessageCircle, Star, GraduationCap, Quote } from "lucide-react";
+import {
+  Heart,
+  MessageCircle,
+  Star,
+  GraduationCap,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+
+import jocelyne from "../assets/jocelyne.jpg";
+import marieAndree from "../assets/marie.jpg";
+import berthe from "../assets/berthe.jpg";
+import mamies7 from "../assets/mamies7.jpg";
+import mamies2 from "../assets/mamies12.jpg";
+import centre1 from "../assets/centre1.jpg";
+import centre2 from "../assets/centre2.jpg";
+import centre4 from "../assets/centre4.jpg";
+import volcan1 from "../assets/volcan1.mp4";
+import volcan2 from "../assets/volcan2.jpg";
+import volcan3 from "../assets/volcan3.jpg";
+import volcan4 from "../assets/volcan4.jpg";
+import maloya02 from "../assets/maloya2.jpg";
+import maloya03 from "../assets/maloya3.jpg";
+import cuisine1 from "../assets/cuisine1.jpg";
+import cuisine2 from "../assets/cuisine2.jfif";
+import cuisine3 from "../assets/cuisine3.mp4";
+import cuisine5 from "../assets/cuisine5.jfif"; 
+
+// Composant interne pour les carrousels thématiques
+function ThemeCarousel({ items, styles, title }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+
+  return (
+    <div style={{ marginBottom: "40px" }}>
+      <h3
+        style={{
+          fontFamily: "var(--font-0)",
+          fontSize: "1.5rem",
+          marginBottom: "15px",
+          textTransform: "uppercase",
+          color: "#333",
+        }}
+      >
+        {title}
+      </h3>
+      <div style={styles.carouselContainer}>
+        {items.length > 1 && (
+          <>
+            <button
+              onClick={prevSlide}
+              style={{ ...styles.navButton, left: "15px" }}
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={nextSlide}
+              style={{ ...styles.navButton, right: "15px" }}
+            >
+              <ChevronRight size={24} />
+            </button>
+          </>
+        )}
+        <div style={{ width: "100%", height: "100%" }}>
+          {items[currentSlide].type === "image" ? (
+            <img
+              src={items[currentSlide].url}
+              alt={items[currentSlide].caption}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          ) : (
+            <video
+              key={items[currentSlide].url}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              controls
+              autoPlay
+              muted
+              loop
+            >
+              <source src={items[currentSlide].url} type="video/mp4" />
+            </video>
+          )}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              width: "100%",
+              background: "rgba(0,0,0,0.7)",
+              color: "#fff",
+              padding: "15px",
+              textAlign: "center",
+              fontSize: "0.9rem",
+              fontFamily: "var(--font-3)",
+            }}
+          >
+            {items[currentSlide].caption}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ClubDesMamies() {
   useEffect(() => {
@@ -24,24 +129,21 @@ function ClubDesMamies() {
     {
       nom: "Madame Jocelyne",
       role: "Référente Ateliers Couture",
-      image:
-        "https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=1887&auto=format&fit=crop",
+      image: jocelyne,
       desc: "Une forme 'gayar' qui rayonne. Entre jardinage, maloya chanté et danse séga, elle est la gardienne des traditions. Elle ne maîtrise pas le lexique militant, mais elle possède une expertise du cœur : elle défend tout le monde contre le rejet.",
       anecdote: "Grâce à Pilon, elle a enfin vu une éruption au Volcan.",
     },
     {
       nom: "Madame Marie Andrée",
       role: "Référente Camping & Rando",
-      image:
-        "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop",
+      image: marieAndree,
       desc: "Autrefois tournée vers le regard des autres, elle vit aujourd'hui pour son propre bonheur. De la découverte de la machine à coudre à l'organisation d'un camping Cowboy, elle prouve qu'il n'y a pas d'âge pour s'émanciper.",
       anecdote: "Elle a créé des liens indéfectibles avec les jeunes.",
     },
     {
       nom: "Madame Berthe",
       role: "Référente Atelier Cuisine",
-      image:
-        "https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1824&auto=format&fit=crop",
+      image: berthe,
       desc: "Discrète mais indispensable, elle veille sur le local et sur les jeunes avec une attention maternelle. Entre les soirées jeux et la cuisine, elle s'initie même au rouleur, montrant que la curiosité reste son moteur principal.",
       anecdote: "Elle est le pont entre l'entretien du lieu et le lien social.",
     },
@@ -51,7 +153,7 @@ function ClubDesMamies() {
     hero: {
       height: "65vh",
       background:
-        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070') center/cover",
+        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero8.jpg') top/cover",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -81,6 +183,27 @@ function ClubDesMamies() {
       textAlign: "center",
       paddingBottom: "30px",
     },
+    carouselContainer: {
+      position: "relative",
+      height: "450px",
+      borderRadius: "4px",
+      overflow: "hidden",
+      backgroundColor: "#000",
+    },
+    navButton: {
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      background: "rgba(255,255,255,0.8)",
+      border: "none",
+      borderRadius: "50%",
+      padding: "10px",
+      cursor: "pointer",
+      zIndex: 10,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
   };
 
   return (
@@ -95,7 +218,7 @@ function ClubDesMamies() {
             lineHeight: "1",
           }}
         >
-          L'HÉRITAGE DES <span style={styles.accent}>MAMIES</span>
+          Le club DES <span style={styles.accent}>MAMIES</span>
         </h1>
         <p
           style={{
@@ -105,12 +228,13 @@ function ClubDesMamies() {
             marginTop: "20px",
           }}
         >
-          Quand la sagesse créole devient le bouclier des jeunesses LGBT+.
+          Quand lutter contre l'isolement des personnes âgées croise la lutte
+          contre le rejet des LGBT.
         </p>
       </section>
 
       <div style={{ maxWidth: "1250px", margin: "0 auto", padding: "0 5vw" }}>
-        {/* SECTION 1 : POURQUOI LES MAMIES ? */}
+        {/* SECTION 1 : TEXTE + PHOTO UNIQUE */}
         <section
           className="reveal"
           style={{
@@ -126,11 +250,13 @@ function ClubDesMamies() {
               gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
               gap: "80px",
               alignItems: "center",
+              marginBottom: "60px",
             }}
           >
             <div>
               <h2 style={styles.h2}>
-                RECONSTRUIRE LA <span style={styles.accent}>FAMILLE</span>
+                UNE ALLIANCE{" "}
+                <span style={styles.accent}>INTERGÉNÉRATIONNELLE</span>
               </h2>
               <p
                 style={{
@@ -140,12 +266,12 @@ function ClubDesMamies() {
                   color: "#333",
                 }}
               >
-                Pour beaucoup de jeunes LGBT+ rejetés par leur propre foyer, nos
-                mamies incarnent une <strong>"famille de substitution"</strong>.
-                Elles ne sont pas là pour juger, mais pour{" "}
-                <strong>cadrer et structurer</strong>. Là où le dialogue a été
-                rompu avec les parents, elles recréent un espace de tendresse
-                inconditionnelle.
+                Pour beaucoup de jeunes LGBT+ rejetés par leur foyer, nos mamies
+                incarnent une <strong>"famille de substitution"</strong>. Mais
+                chez Pilon, l'amour est un échange vital. Nos mamies ne se
+                contentent pas d'écouter ; elles se forment. Elles sont
+                aujourd'hui <strong>secouristes en santé mentale (PSSM)</strong>
+                , capables de poser des mots là où le dialogue a été rompu.
               </p>
               <p
                 style={{
@@ -156,48 +282,199 @@ function ClubDesMamies() {
                   marginTop: "20px",
                 }}
               >
-                Leur présence apaise les tensions et redonne des repères aux
-                jeunes en perte de sens. Elles apportent cette stabilité
-                émotionnelle qui permet aux jeunes de se projeter à nouveau dans
-                l'avenir.
+                En retour, les jeunes deviennent leurs piliers : quand l'une
+                d'elles doit déménager, quand il faut dompter WhatsApp ou
+                préparer une présentation PowerPoint pour l'Université, la
+                jeunesse est là. C'est une alliance contre la solitude : grâce à
+                l'association, certaines ont vu le{" "}
+                <strong>Volcan en éruption</strong> pour la première fois,
+                tandis que des jeunes découvraient la vibration du{" "}
+                <strong>rouleur</strong> sous leurs mains.
               </p>
             </div>
             <div
               style={{
-                backgroundColor: "#f9f9f9",
-                padding: "40px",
-                borderLeft: "5px solid rgb(190, 3, 34)",
+                height: "600px",
+                borderRadius: "4px",
+                overflow: "hidden",
               }}
             >
-              <Quote
-                size={40}
-                color="rgb(190, 3, 34)"
-                style={{ marginBottom: "20px" }}
+              <img
+                src={volcan3}
+                alt="Les mamies"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-              <p
-                style={{
-                  fontFamily: "var(--font-0)",
-                  fontSize: "1.8rem",
-                  color: "#000",
-                  fontStyle: "italic",
-                }}
-              >
-                "Zot sé nout marmay, nout tout i mèn lo min mèm simin."
-              </p>
-              <p
-                style={{
-                  marginTop: "15px",
-                  fontFamily: "var(--font-3)",
-                  color: "#666",
-                }}
-              >
-                (Vous êtes nos enfants, nous marchons tous sur le même chemin.)
-              </p>
             </div>
           </div>
         </section>
 
-        {/* LES TROIS MAMIES : AFFICHAGE CÔTE À CÔTE */}
+        {/* SECTION CAROUSELS PAR THÉMATIQUES */}
+        <section
+          className="reveal"
+          style={{ padding: "60px 0", opacity: 0, transition: "0.8s" }}
+        >
+          <h2
+            style={{ ...styles.h2, textAlign: "center", marginBottom: "50px" }}
+          >
+            NOS SOUVENIRS <span style={styles.accent}>EN IMAGES</span>
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
+              gap: "40px",
+            }}
+          >
+            <ThemeCarousel
+              title="Au centre LGBT"
+              items={[
+                {
+                  type: "image",
+                  url: centre1,
+                  caption: "Partage au centre",
+                },
+                {
+                  type: "image",
+                  url: centre2,
+                  caption: "Une jeune masse une mamie",
+                },
+                {
+                  type: "image",
+                  url: mamies7,
+                  caption: "Atelier couture",
+                },
+                {
+                  type: "image",
+                  url: centre4,
+                  caption: "Marie-Andrée présente le camping Cow-Boy",
+                },
+              ]}
+              styles={styles}
+            />
+            <ThemeCarousel
+              title="Atelier Cuisine"
+              items={[
+                {
+                  type: "video",
+                  url: cuisine3,
+                  caption: "Le brunch de Pâques",
+                },
+                {
+                  type: "image",
+                  url: cuisine1,
+                  caption: "La transmission culinaire",
+                },
+                {
+                  type: "image",
+                  url: cuisine2,
+                  caption: "Madame Jocelyne fait une salade russe",
+                },
+                {
+                  type: "image",
+                  url: cuisine5,
+                  caption: "La transmission culinaire",
+                },
+              ]}
+              styles={styles}
+            />
+            <ThemeCarousel
+              title="Le Maloya"
+              items={[
+                {
+                  type: "image",
+                  url: mamies2,
+                  caption: "Les mamies chantent le maloya",
+                },
+                {
+                  type: "image",
+                  url: maloya02,
+                  caption: "Initiation rouler",
+                },
+                {
+                  type: "image",
+                  url: maloya03,
+                  caption: "An Nah sur un rouler",
+                },
+               
+              ]}
+              styles={styles}
+            />
+            <ThemeCarousel
+              title="Au Volcan"
+              items={[
+                {
+                  type: "image",
+                  url: volcan2,
+                  caption: "Photo de groupe au volcan",
+                },
+                 {
+                  type: "image",
+                  url: volcan4,
+                  caption: "Marche jusqu'au volcan",
+                },
+                 {
+                  type: "image",
+                  url: volcan3,
+                  caption: "les trois mamies devant la route coupée par la lave",
+                },
+                 {
+                  type: "video",
+                  url: volcan1,
+                  caption: "chantons sous la pluie",
+                },
+              ]}
+              styles={styles}
+            />
+          </div>
+        </section>
+
+        {/* CITATION */}
+        <section
+          className="reveal"
+          style={{ paddingBottom: "100px", opacity: 0, transition: "0.8s" }}
+        >
+          <div
+            style={{
+              backgroundColor: "#f9f9f9",
+              padding: "40px",
+              borderLeft: "5px solid rgb(190, 3, 34)",
+              maxWidth: "800px",
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            <Quote
+              size={40}
+              color="rgb(190, 3, 34)"
+              style={{
+                marginBottom: "20px",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            />
+            <p
+              style={{
+                fontFamily: "var(--font-0)",
+                fontSize: "1.8rem",
+                color: "#000",
+                fontStyle: "italic",
+              }}
+            >
+              "Na pwin po rojoté, sa sé nout marmay la Réynyon"
+            </p>
+            <p
+              style={{
+                marginTop: "15px",
+                fontFamily: "var(--font-3)",
+                color: "#666",
+              }}
+            >
+              (Il ne faut pas rejeter. Ce sont nos enfants de La Réunion.)
+            </p>
+          </div>
+        </section>
+
+        {/* NOS TROIS PILIERS */}
         <section
           className="reveal"
           style={{ ...styles.section, opacity: 0, transition: "0.8s" }}
@@ -208,8 +485,8 @@ function ClubDesMamies() {
           <div
             style={{
               display: "flex",
-              flexDirection: "row", // Force l'affichage en ligne
-              flexWrap: "wrap", // Permet de passer en colonne uniquement sur mobile
+              flexDirection: "row",
+              flexWrap: "wrap",
               gap: "25px",
               justifyContent: "space-between",
             }}
@@ -315,12 +592,13 @@ function ClubDesMamies() {
                   opacity: 0.9,
                 }}
               >
-                Les mamies apportent une dimension culturelle vitale au Centre
-                LGBT. Elles transmettent le **vocabulaire "lontan"**, la cuisine
-                au feu de bois et l'art de vivre réunionnais. En parlant créole
-                avec les jeunes, elles ancrent l'identité LGBT+ dans le
-                territoire : on peut être Gay, Lesbienne ou Trans et être fier
-                de ses racines réunionnaises.
+                Le Club des Mamies est notre pont vers l'identité réunionnaise.
+                Elles nous redonnent accès à nos traditions et à une culture
+                créole que l'on pensait parfois perdue ou hostile. À travers la
+                transmission culinaire au feu de bois, le partage d'expressions
+                "lontan" et leur savoir, elles ancrent nos parcours LGBT+ dans
+                la terre de La Réunion. Elles offrent cette tendresse
+                inconditionnelle là où le rejet familial a laissé des vides.
               </p>
             </div>
             <div
@@ -356,8 +634,8 @@ function ClubDesMamies() {
                   <GraduationCap color="rgb(190, 3, 34)" />
                 </div>
                 <div>
-                  <strong>Savoir-faire :</strong> Couture, cuisine, jardinage...
-                  la transmission du geste.
+                  <strong>Savoir-faire :</strong> Cuisine au feu de bois,
+                  couture... la transmission du geste.
                 </div>
               </div>
               <div
@@ -370,11 +648,11 @@ function ClubDesMamies() {
                     borderRadius: "50%",
                   }}
                 >
-                  <Star color="rgb(190, 3, 34)" />
+                  <Heart color="rgb(190, 3, 34)" />
                 </div>
                 <div>
-                  <strong>Représentation :</strong> Des séniors alliées au
-                  Conseil d'Administration.
+                  <strong>Amour inconditionnel :</strong> Lutter contre le rejet
+                  sociétal et familial par le lien.
                 </div>
               </div>
             </div>
@@ -399,14 +677,9 @@ function ClubDesMamies() {
             }}
           >
             Si les jeunes y trouvent des mamies, elles y trouvent une nouvelle
-            jeunesse. Elles apprennent à dompter WhatsApp, à animer des
-            PowerPoints pour leurs réunions institutionnelles à la Mairie ou à
-            l'Université, et surtout, elles brisent leur propre isolement.
-            <strong>
-              {" "}
-              Chez Pilon, le conflit générationnel n'existe pas : il est
-              remplacé par le respect mutuel.
-            </strong>
+            jeunesse. Chez Pilon, le conflit générationnel n'existe pas : il est
+            remplacé par un respect mutuel indéfectible. Ensemble, elles et ils
+            luttent contre toutes les formes d'isolement.
           </p>
         </section>
 
@@ -415,7 +688,7 @@ function ClubDesMamies() {
           className="reveal"
           style={{ padding: "60px 0 120px 0", textAlign: "center", opacity: 0 }}
         >
-          <Link to="/contact">
+          <Link to="/Rejoindre">
             <button
               type="button"
               className="button_style other"
@@ -426,9 +699,10 @@ function ClubDesMamies() {
                 padding: "20px 40px",
                 border: "none",
                 fontFamily: "var(--font-0)",
+                cursor: "pointer",
               }}
             >
-              PARTAGER UN MOMENT AVEC ELLES
+              Rejoindre le club des mamies
             </button>
           </Link>
         </section>

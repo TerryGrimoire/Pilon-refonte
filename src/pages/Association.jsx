@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Users, Heart, Target, Sparkles } from "lucide-react";
 import histoire from "../assets/histoire.jpeg";
 import centre from "../assets/centreLGBT.jpg";
-import pilon from "../assets/maloya2.jpg";
+import pilon from "../assets/out.jpg";
 import myriam from "../assets/myriam.jfif";
 import amandine from "../assets/amandine.jpg";
 import dorine from "../assets/dorine.jpg";
@@ -102,7 +102,7 @@ function PageAssociationPilon() {
     hero: {
       height: "70vh",
       background:
-        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/heroasso2.jpg') bottom/cover",
+        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero3.jpg') center/cover",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -263,14 +263,10 @@ function PageAssociationPilon() {
           <div style={styles.splitText}>
             <h2 style={styles.h2}>NOTRE HISTOIRE</h2>
             <p style={styles.p}>
-              L'association Pilon est née d'une urgence : celle de ne plus
-              laisser les personnes LGBT+ de La Réunion seules face au rejet et
-              à la précarité.
+              L'association Pilon est née au lendemain de la toute première marche des visibilités de St Denis en 2021. Elle a débuté par un groupe d'amis qui voulait se retrouver et faire de la danse en talons.
             </p>
             <p style={styles.p}>
-              Notre parcours est celui d'une réappropriation de notre destin.
-              Nous avons commencé par des cercles de parole pour devenir
-              aujourd'hui un acteur majeur de la solidarité sur l'île.
+              La toute première action de Pilon est un pique-nique arc-en-ciel dont l'idée vient de la maman du fondateur, qui lui propose de faire un événement pour les familles. C'est comme ça qu'est né le pique-nique arc-en-ciel.
             </p>
           </div>
         </div>
@@ -292,14 +288,14 @@ function PageAssociationPilon() {
             />
           </div>
           <div style={styles.splitText}>
-            <h2 style={styles.h2}>CENTRE LGBT NORD DE LA RÉUNION</h2>
+            <h2 style={styles.h2}>CENTRE LGBT NORD</h2>
             <p style={styles.p}>
-              Pilon est la structure qui porte et anime le{" "}
-              <strong>Centre LGBT+ Nord de La Réunion</strong>. Nous y assurons
+              Pilon est la structure qui porte le{" "}
+              <strong>Centre LGBT Nord de La Réunion</strong>. Copiloté par 4 associations, Requeer, Kwir Mouvman, Timizé et Pilon, nous y assurons
               des missions de service public : permanences psychologiques,
               assistance sociale et santé sexuelle.
             </p>
-            <div
+            <Link to="/centre"
               style={{
                 padding: "20px",
                 borderLeft: "4px solid rgb(190, 3, 34)",
@@ -310,7 +306,7 @@ function PageAssociationPilon() {
               }}
             >
               UN LIEU UNIQUE D'ACCUEIL ET DE DROITS.
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -328,17 +324,14 @@ function PageAssociationPilon() {
           </div>
           <div style={styles.splitText}>
             <h2 style={styles.h2}>
-              L'INSULTE DEVENUE{" "}
-              <span style={{ color: "rgb(190, 3, 34)" }}>FORCE</span>
+              Que signigie{" "}
+              <span style={{ color: "rgb(190, 3, 34)" }}>pilon</span> ?
             </h2>
             <p style={styles.p}>
-              À Maurice et aux Seychelles, "Pilon" est l'insulte créole utilisée
-              pour désigner les pédés. Nous avons repris ce mot : ce qui était
-              une injure devient notre fierté.
+              Deux raisons nous ont poussé à choisir le nom Pilon. La première est que notre association souhaite valoriser la culture créole et l'héritage ancestrales Réunionnais. Or, le Pilon est traditionnellement offert aux jeunes mariés lorsqu'ils fondent un foyer. Ce qui en fait un instrument traditionnel que tous les Réunionnais possèdent. 
             </p>
             <p style={styles.p}>
-              Le pilon écrase les épices. Pour nous, il écrase les préjugés et
-              mélange nos cultures pour faire avancer nout destin commun.
+            De plus, en créole Mauricien et Seychellois, Pilon est une insulte pour désigner les homosexuels. Nous avons voulu nous réapproprier cette insulte par solidarité avec les autres peuples de l'Océan Indien, pour leur montrer que tant qu'on sera fiers d'être Pilon, aucune insulte ne peut nous atteindre. 
             </p>
           </div>
         </div>

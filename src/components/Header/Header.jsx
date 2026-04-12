@@ -43,6 +43,10 @@ function Burger() {
             <Link to="/Actions" onClick={toggleMenu}>
               Nos actions
             </Link>
+            <Link to="/Mamies" onClick={toggleMenu}>
+              Le club des mamies
+            </Link>
+
             <Link to="/Agenda" onClick={toggleMenu}>
               Agenda
             </Link>
@@ -51,9 +55,6 @@ function Burger() {
             </Link>
             <Link to="/Rejoindre" onClick={toggleMenu}>
               Nous rejoindre
-            </Link>
-            <Link to="/FAQ" onClick={toggleMenu}>
-              FAQ
             </Link>
             <Link to="/Contact" onClick={toggleMenu}>
               Contact

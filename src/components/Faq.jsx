@@ -118,11 +118,19 @@ function Faq() {
           Voir la FAQ complète
         </button>{" "}
       </Link>
-      <div style={{ borderTop: "1px solid #E0E0E0" }}>
+      
+      <div style={{ borderTop: "1px solid #E0E0E0", marginBottom: "50px" }}>
         {faqData.map((item) => (
           <FaqItem question={item.question} answer={item.answer} />
         ))}
       </div>
+       <Link to="/Blog" className="linkfaq">
+        {" "}
+        <button type="button"   className="button_style other"
+                  style={{ backgroundColor: "#fff", color: "#000", border : "1px, solid, black" }}>
+          Plus d'articles sur notre blog
+        </button>{" "}
+      </Link>
     </div>
   );
 }

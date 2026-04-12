@@ -2,6 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { ArrowRight, Heart, Users, Sparkles, ShieldCheck } from "lucide-react";
+import hero12 from "../assets/hero14.jpg";
 
 // --- COMPOSANT SECTION TITLE ---
 function SectionTitle({ subtitle, title, centered = true }) {
@@ -78,8 +79,7 @@ function FeatureCard({ icon, title, text }) {
 // --- PAGE PRINCIPALE ---
 function JoinUsPage() {
   const accentColor = "rgb(190, 3, 34)";
-  const bgHero =
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070";
+  const bgHero = hero12;
 
   return (
     <div style={{ backgroundColor: "#FFFFFF" }}>
