@@ -28,6 +28,7 @@ import cuisine1 from "../assets/cuisine1.jpg";
 import cuisine2 from "../assets/cuisine2.jfif";
 import cuisine3 from "../assets/cuisine3.mp4";
 import cuisine5 from "../assets/cuisine5.jfif";
+import hero8 from "../assets/hero8.jpg";
 
 // Composant interne pour les carrousels thématiques
 function ThemeCarousel({ items, styles, title }) {
@@ -38,7 +39,7 @@ function ThemeCarousel({ items, styles, title }) {
     setCurrentSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1));
 
   return (
-    <div style={{ marginBottom: "40px" }}>
+    <div style={{ marginBottom: "40px", width: "100%" }}>
       <h3
         style={{
           fontFamily: "var(--font-0)",
@@ -155,31 +156,32 @@ function ClubDesMamies() {
 
   const styles = {
     hero: {
-      height: "65vh",
-      background:
-        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero8.jpg') top/cover",
+      minHeight: "65vh",
+      width: "100%",
+      boxSizing: "border-box",
+      background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${hero8}) top/cover`,
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
       color: "white",
       textAlign: "center",
-      padding: "0 5vw",
+      padding: "100px 5vw",
       position: "relative",
     },
-    section: { padding: "100px 0" },
+    section: { padding: "100px 0", width: "100%", boxSizing: "border-box" },
     h2: {
-      fontSize: "3.8rem",
+      fontSize: "clamp(2rem, 8vw, 3rem)",
       fontFamily: "var(--font-0)",
       color: "#000",
       marginBottom: "30px",
-      lineHeight: "0.85",
+      lineHeight: "1",
       textTransform: "uppercase",
     },
     accent: { color: "rgb(190, 3, 34)" },
     mamieCard: {
       flex: "1",
-      minWidth: "300px",
+      minWidth: "280px",
       background: "white",
       border: "1px solid #eee",
       borderRadius: "4px",
@@ -193,6 +195,7 @@ function ClubDesMamies() {
       borderRadius: "4px",
       overflow: "hidden",
       backgroundColor: "#000",
+      width: "100%",
     },
     navButton: {
       position: "absolute",
@@ -211,22 +214,25 @@ function ClubDesMamies() {
   };
 
   return (
-    <div style={{ backgroundColor: "var(--main-bg-color)" }}>
+    <div
+      style={{ backgroundColor: "var(--main-bg-color)", overflowX: "hidden" }}
+    >
       {/* HERO SECTION */}
       <section style={styles.hero}>
         <h1
           style={{
-            fontSize: "5.5rem",
+            fontSize: "clamp(2.5rem, 10vw, 5.5rem)",
             fontFamily: "var(--font-0)",
             textTransform: "uppercase",
             lineHeight: "1",
+            maxWidth: "100%",
           }}
         >
           Le club DES <span style={styles.accent}>MAMIES</span>
         </h1>
         <p
           style={{
-            fontSize: "1.4rem",
+            fontSize: "clamp(1.1rem, 4vw, 1.4rem)",
             fontFamily: "var(--font-3)",
             maxWidth: "900px",
             marginTop: "20px",
@@ -251,10 +257,9 @@ function ClubDesMamies() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-              gap: "80px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "40px",
               alignItems: "center",
-              marginBottom: "60px",
             }}
           >
             <div>
@@ -296,7 +301,7 @@ function ClubDesMamies() {
             </div>
             <div
               style={{
-                height: "600px",
+                height: "500px",
                 borderRadius: "4px",
                 overflow: "hidden",
               }}
@@ -310,7 +315,7 @@ function ClubDesMamies() {
           </div>
         </section>
 
-        {/* SECTION CAROUSELS PAR THÉMATIQUES */}
+        {/* SECTION CAROUSELS - CORRECTION ICI POUR LE 2x2 */}
         <section
           className="reveal"
           style={{ padding: "60px 0", opacity: 0, transition: "0.8s" }}
@@ -323,28 +328,22 @@ function ClubDesMamies() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
+              // Force 2 colonnes sur desktop, passe à 1 sur mobile
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(min(100%, 450px), 1fr))",
               gap: "40px",
             }}
           >
             <ThemeCarousel
               title="Au centre LGBT"
               items={[
-                {
-                  type: "image",
-                  url: centre1,
-                  caption: "Partage au centre",
-                },
+                { type: "image", url: centre1, caption: "Partage au centre" },
                 {
                   type: "image",
                   url: centre2,
                   caption: "Une jeune masse une mamie",
                 },
-                {
-                  type: "image",
-                  url: mamies7,
-                  caption: "Atelier couture",
-                },
+                { type: "image", url: mamies7, caption: "Atelier couture" },
                 {
                   type: "image",
                   url: centre4,
@@ -387,11 +386,7 @@ function ClubDesMamies() {
                   url: mamies2,
                   caption: "Les mamies chantent le maloya",
                 },
-                {
-                  type: "image",
-                  url: maloya02,
-                  caption: "Initiation rouler",
-                },
+                { type: "image", url: maloya02, caption: "Initiation rouler" },
                 {
                   type: "image",
                   url: maloya03,
@@ -438,7 +433,7 @@ function ClubDesMamies() {
           <div
             style={{
               backgroundColor: "#f9f9f9",
-              padding: "40px",
+              padding: "40px 20px",
               borderLeft: "5px solid rgb(190, 3, 34)",
               maxWidth: "800px",
               margin: "0 auto",
@@ -490,11 +485,11 @@ function ClubDesMamies() {
               flexDirection: "row",
               flexWrap: "wrap",
               gap: "25px",
-              justifyContent: "space-between",
+              justifyContent: "center",
             }}
           >
-            {mamies.map((m) => (
-              <div style={styles.mamieCard}>
+            {mamies.map((m, index) => (
+              <div key={index} style={styles.mamieCard}>
                 <div style={{ height: "350px", overflow: "hidden" }}>
                   <img
                     src={m.image}
@@ -564,7 +559,7 @@ function ClubDesMamies() {
             opacity: 0,
             background: "#000",
             color: "#fff",
-            padding: "80px 40px",
+            padding: "60px 40px",
             borderRadius: "4px",
             margin: "60px 0",
           }}
@@ -572,8 +567,8 @@ function ClubDesMamies() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "60px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "40px",
             }}
           >
             <div>
@@ -615,11 +610,12 @@ function ClubDesMamies() {
                     padding: "15px",
                     background: "rgba(190, 3, 34, 0.2)",
                     borderRadius: "50%",
+                    flexShrink: 0,
                   }}
                 >
                   <MessageCircle color="rgb(190, 3, 34)" />
                 </div>
-                <div>
+                <div style={{ fontSize: "0.95rem" }}>
                   <strong>Gardiennes :</strong> Elles prennent soin du Centre
                   LGBT et des jeunes avec amour.
                 </div>
@@ -632,11 +628,12 @@ function ClubDesMamies() {
                     padding: "15px",
                     background: "rgba(190, 3, 34, 0.2)",
                     borderRadius: "50%",
+                    flexShrink: 0,
                   }}
                 >
                   <GraduationCap color="rgb(190, 3, 34)" />
                 </div>
-                <div>
+                <div style={{ fontSize: "0.95rem" }}>
                   <strong>Savoir-faire :</strong> Cuisine au feu de bois,
                   couture... la transmission du geste.
                 </div>
@@ -649,41 +646,18 @@ function ClubDesMamies() {
                     padding: "15px",
                     background: "rgba(190, 3, 34, 0.2)",
                     borderRadius: "50%",
+                    flexShrink: 0,
                   }}
                 >
                   <Heart color="rgb(190, 3, 34)" />
                 </div>
-                <div>
+                <div style={{ fontSize: "0.95rem" }}>
                   <strong>Amour inconditionnel :</strong> Lutter contre le rejet
                   sociétal et familial par le lien.
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* SECTION 3 : UNE SYMBIOSE ÉTONNANTE */}
-        <section
-          className="reveal"
-          style={{ ...styles.section, opacity: 0, textAlign: "center" }}
-        >
-          <h2 style={styles.h2}>
-            UN ÉCHANGE <span style={styles.accent}>DOUBLE SENS</span>
-          </h2>
-          <p
-            style={{
-              fontFamily: "var(--font-4)",
-              fontSize: "1.3rem",
-              maxWidth: "800px",
-              margin: "0 auto",
-              lineHeight: "1.8",
-            }}
-          >
-            Si les jeunes y trouvent des mamies, elles y trouvent une nouvelle
-            jeunesse. Chez Pilon, le conflit générationnel n'existe pas : il est
-            remplacé par un respect mutuel indéfectible. Ensemble, elles et ils
-            luttent contre toutes les formes d'isolement.
-          </p>
         </section>
 
         {/* CTA */}

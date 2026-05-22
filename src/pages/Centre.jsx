@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Users, Briefcase, Coffee, ShieldCheck } from "lucide-react";
 
 import centreLGBT from "../assets/centreLGBT.jpg";
+import heroasso2 from "../assets/heroasso2.jpg";
 
 function PageCentreLGBT() {
   useEffect(() => {
@@ -48,8 +49,7 @@ function PageCentreLGBT() {
   const styles = {
     hero: {
       height: "60vh",
-      background:
-        "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/assets/heroasso2.jpg') top/cover",
+      background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${heroasso2}) top/cover`,
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",

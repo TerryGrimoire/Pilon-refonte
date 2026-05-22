@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import actionsData from "../data/data";
+import hero6 from "../assets/hero6.jpg";
 
 function NosActions() {
   const [filter, setFilter] = useState("Tous");
@@ -42,28 +43,43 @@ function NosActions() {
         backgroundColor: "var(--main-bg-color)",
         minHeight: "100vh",
         paddingBottom: "100px",
+        overflowX: "hidden", // Sécurité anti-débordement horizontal
       }}
     >
       <section
         className="home_hero"
         style={{
           height: "60vh",
-          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero6.jpg') center/cover`,
+          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${hero6}) center/cover`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "0 20px",
         }}
       >
         <h1
           style={{
             fontFamily: "var(--font-3)",
-            fontSize: "4rem",
+            fontSize: "clamp(2.5rem, 8vw, 4rem)", // Taille adaptative
             textTransform: "uppercase",
             color: "white",
+            margin: 0,
           }}
         >
           NOS <span style={{ color: "rgb(190, 3, 34)" }}>ACTIONS</span>
         </h1>
       </section>
 
-      <div className="container" style={{ padding: "0 12.5vw" }}>
+      {/* Remplacement du padding fixe par un padding adaptatif */}
+      <div
+        className="container"
+        style={{
+          padding: "0 clamp(20px, 5vw, 12.5vw)",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
         <nav
           style={{
             padding: "40px 0",
@@ -106,8 +122,11 @@ function NosActions() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
+            // Utilisation de min(100%, 350px) pour éviter de dépasser la largeur de l'écran sur mobile
+            gridTemplateColumns:
+              "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
             gap: "30px",
+            width: "100%",
           }}
         >
           {filteredActions.map((action) => (
@@ -116,12 +135,13 @@ function NosActions() {
               className="reveal"
               style={{
                 backgroundColor: "#fff",
-                padding: "40px",
+                padding: "clamp(20px, 5vw, 40px)", // Padding interne adaptatif
                 borderRadius: "4px",
                 borderLeft: "6px solid rgb(190, 3, 34)",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                boxSizing: "border-box",
               }}
             >
               <div>
@@ -163,6 +183,7 @@ function NosActions() {
                   textAlign: "center",
                   margin: 0,
                   textDecoration: "none",
+                  display: "block", // Assure que le bouton prend la largeur dispo
                 }}
               >
                 Découvrir l'action

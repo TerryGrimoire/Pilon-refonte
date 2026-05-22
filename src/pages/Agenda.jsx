@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import agendaData from "../data/agendaData";
 import actionsData from "../data/data";
+import presse from "../assets/presse.jpg";
 
 function Agenda() {
   const allYears = [
@@ -49,7 +50,7 @@ function Agenda() {
         className="home_hero"
         style={{
           height: "60vh",
-          background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/assets/presse.jpg') top/cover`,
+          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${presse}) top/cover`,
         }}
       >
         <h1

@@ -3,11 +3,11 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { ShoppingBag, ExternalLink, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import fleche from "../assets/fleche.png"; // On réutilise la flèche de l'accueil
 import jupes from "../assets/jupes.jpg";
 import drapeau from "../assets/drapeau.jpg";
 import eventail from "../assets/boutique.jpg";
 import jupe2 from "../assets/jupe2.jpg";
+import boutique2 from "../assets/boutique2.jpg";
 
 const produits = [
   {
@@ -56,8 +56,7 @@ export default function Boutique() {
     },
     hero: {
       height: "70vh",
-      background:
-        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/boutique2.jpg') bottom/cover",
+      background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${boutique2}) bottom/cover`,
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",

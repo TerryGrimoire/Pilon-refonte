@@ -949,6 +949,29 @@ span {
   .menu {
     display: none; /* Cache le menu classique pour mettre un menu burger plus tard */
   }
+h2 {
+  /* 1. La taille s'adapte à l'écran : min 1.2rem, idéal 5vw, max 2rem */
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  text-align: center;
+  /* 2. On limite la largeur à 90% de l'écran pour garder une marge */
+  width: 90%;
+  max-width: auto; /* Pour éviter qu'il soit trop large sur ordi */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* 3. Sécurité absolue contre le débordement horizontal */
+  overflow-wrap: break-word; /* Force le retour à la ligne si un mot est trop long */
+  word-break: break-word;
+  hyphens: auto;             /* Coupe avec un tiret si nécessaire */
+
+  /* 4. Mise en forme pour la lisibilité */
+  text-align: center;
+  line-height: 1.3;
+  padding: 0 15px;
+  box-sizing: border-box; /* Crucial pour que le padding ne pousse pas les bords */
+}
+
+ 
 }
 
 /********************************************************************* RESPONSIVE PIELON (Mobile & Tablette) *********************************************************************/
@@ -956,16 +979,21 @@ span {
 @media (max-width: 1024px) {
   /* Ajustement global des paddings pour ne pas coller aux bords */
   section {
-    padding: 40px 5vw !important;
+    padding: 40px 0w !important;
+    max-width: 100%;
+    overflow: hidden;
   }
-
+ 
   section.home_hero {
     padding: 0 !important; /* Le hero doit prendre toute la largeur */
+ 
+
   }
 
   /* HERO - Ajustement du titre pour qu'il ne cache pas tout l'écran */
   .home_hero h1 {
     font-size: 2.2rem;
+   text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
     top: 50%;
     width: 90%;
   }
@@ -1007,8 +1035,7 @@ span {
   }
   .home_missions > p {
     width: 100%;
-  }
-
+  } 
   /* CHIFFRES - Passage en 2 colonnes */
   .home_chiffres {
     flex-direction: column;
@@ -1068,6 +1095,11 @@ span {
     margin: 10px 0 !important;
     width: 100%;
   }
+ 
+
+  .footer p {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1087,9 +1119,8 @@ span {
 
 /* --- Style du Header --- */
 .header {
-  padding: 10px 20px;
+  padding: 0px 20px;
   background-color: transparent; /* Ou transparent selon ton design */
-  position: fixed;
   width: 100%;
   z-index: 1000;
 
@@ -1210,6 +1241,7 @@ span {
     text-align: center;
     white-space: nowrap; /* Empêche les mots de se couper s'ils sont longs */
   }
+  
 }
 
 .home_hero {

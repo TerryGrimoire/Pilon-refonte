@@ -135,7 +135,7 @@ function JoinUsPage() {
               fontSize: "11px",
               fontWeight: "800",
               textTransform: "uppercase",
-              marginBottom: "20px",
+              marginBottom: "60px",
               fontFamily: "var(--font-3)",
             }}
           >
@@ -146,22 +146,11 @@ function JoinUsPage() {
               fontFamily: "var(--font-0)",
               fontSize: "clamp(45px, 8vw, 75px)",
               lineHeight: "0.9",
-              marginBottom: "20px",
+              marginBottom: "10px",
             }}
           >
             nou lé <span style={{ color: accentColor }}>Ansanm</span>.
           </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-3)",
-              fontSize: "20px",
-              maxWidth: "600px",
-              opacity: 0.9,
-            }}
-          >
-            Que vous cherchiez du soutien, de la convivialité ou que vous
-            vouliez agir, il y a une place pour vous chez Pilon.
-          </p>
         </div>
         <div
           style={{

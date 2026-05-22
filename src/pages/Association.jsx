@@ -16,6 +16,7 @@ import alexandre from "../assets/alexandre.jpg";
 import christopher from "../assets/christopher.jpg";
 import samuel from "../assets/samuel.jpg";
 import charles from "../assets/charles.jpg";
+import hero3 from "../assets/hero3.jpg";
 
 function PageAssociationPilon() {
   const imageUrl =
@@ -101,8 +102,7 @@ function PageAssociationPilon() {
     },
     hero: {
       height: "70vh",
-      background:
-        "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('src/assets/hero3.jpg') center/cover",
+      background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${hero3}) center/cover`,
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",

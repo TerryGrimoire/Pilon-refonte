@@ -355,7 +355,7 @@ export default function Home({ helmet }) {
                 <img src={horaires} alt="clock" /> Lun-Ven 9h-16h
               </li>
               <li>
-                <img src={telephone} alt="tel" /> 06 92 87 30 50
+                <img src={telephone} alt="tel" /> 06 93 87 30 50
               </li>
               <li>
                 <img src={email} alt="mail" /> contact@pilon.re
